@@ -5,7 +5,7 @@ Website học tập tương tác môn **Giáo dục Địa phương** cho học 
 ## 🔗 Sản phẩm chạy thử (AI hoạt động thật)
 👉 **https://su-gianhiai.vercel.app**
 
-Mở link → bấm thẻ **💬 Sử Gia Nhí AI** → bấm "Cho phép" khi trình duyệt hỏi quyền AI (chỉ một lần, miễn phí) → trò chuyện ngay. AI tích hợp trên nền tảng Claude, **không dùng API key**, không thu thập dữ liệu học sinh.
+Mở link → bấm thẻ **💬 Sử Gia Nhí AI** → đặt câu hỏi và nhận trả lời kèm **📚 Nguồn tham khảo** + nút **🔍 Xem đoạn trích gốc**. AI chạy qua backend bảo mật (API key đặt trong biến môi trường máy chủ, **không nhúng trong mã nguồn**), không thu thập dữ liệu học sinh. Nút **📊 Minh chứng test** trên trang dùng để kiểm chứng độ chính xác với bộ câu hỏi có đáp án chuẩn.
 
 ## ✨ Tính năng chính
 | Khu vực | Nội dung |

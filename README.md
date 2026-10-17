@@ -3,7 +3,7 @@
 Website học tập tương tác môn **Giáo dục Địa phương** cho học sinh thành phố Đà Nẵng (sau sáp nhập 01/7/2025): Vòng quay 16 giai đoạn lịch sử, Bảo tàng ảo, Địa danh qua thời gian, trợ lý AI "Sử Gia Nhí" trả lời kèm nguồn tư liệu, và khu **Kiểm chứng độ chính xác** dành cho giám khảo/giáo viên.
 
 ## 🔗 Sản phẩm chạy thử (AI hoạt động thật)
-👉 **https://claude.ai/artifact/5tDB3J1EK6bKPb4PXKa5dz**
+👉 **https://su-gianhiai.vercel.app**
 
 Mở link → bấm thẻ **💬 Sử Gia Nhí AI** → bấm "Cho phép" khi trình duyệt hỏi quyền AI (chỉ một lần, miễn phí) → trò chuyện ngay. AI tích hợp trên nền tảng Claude, **không dùng API key**, không thu thập dữ liệu học sinh.
 

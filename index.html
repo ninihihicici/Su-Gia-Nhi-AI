@@ -1520,6 +1520,34 @@
             color: #a89482;
         }
 
+        
+        /* Grade level toggle buttons */
+        .grade-toggle-row {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 12px;
+            background: #ede3d1;
+            padding: 4px;
+            border-radius: 30px;
+        }
+        .grade-pill {
+            flex: 1;
+            border: none;
+            background: transparent;
+            padding: 6px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--ink-muted);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .grade-pill.active {
+            background: #ffffff;
+            color: var(--crimson-dark);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
         /* ===== MOBILE RESPONSIVE ===== */
         @media (max-width: 992px) {
             .wheel-view-grid { grid-template-columns: 1fr; }
@@ -1547,24 +1575,7 @@
             .merger-pill { font-size: 0.72rem; }
             .modal-box { width: 95%; max-height: 92vh; }
         }
-    
-        /* ===== VERIFY VIEW ===== */
-        .verify-toolbar{display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-bottom:16px;}
-        .verify-score{margin-left:auto; font-weight:700; color:var(--crimson-dark); background:var(--gold-light,#fef8ea); border:1.5px solid var(--gold); border-radius:999px; padding:8px 16px;}
-        .verify-note{background:#fff; border:1px dashed var(--gold); border-radius:12px; padding:12px 14px; font-size:.9rem; color:var(--ink-light,#5c4535); margin-bottom:16px; line-height:1.55;}
-        .verify-item{background:#fff; border:1px solid var(--border-soft,#d9c5ab); border-radius:14px; padding:14px 16px; margin-bottom:12px;}
-        .verify-item h4{color:var(--crimson); font-size:1rem; margin-bottom:6px;}
-        .verify-key{font-size:.88rem; background:var(--parchment,#f4e8cf); border-radius:8px; padding:8px 10px; margin:6px 0; line-height:1.5;}
-        .verify-ans{font-size:.88rem; background:#fff; border:1px solid var(--border-soft,#d9c5ab); border-radius:8px; padding:8px 10px; margin:6px 0; white-space:pre-wrap; line-height:1.55; max-height:220px; overflow:auto;}
-        .verify-meta{font-size:.8rem; color:var(--ink-muted,#836b5c); margin-top:4px;}
-        .verify-row-actions{display:flex; gap:8px; margin-top:8px; flex-wrap:wrap; align-items:center;}
-        .v-btn{font-family:inherit; font-size:.82rem; font-weight:600; border-radius:999px; padding:6px 13px; cursor:pointer; border:1.5px solid var(--border-soft,#d9c5ab); background:#fff; color:var(--ink-light,#5c4535);}
-        .v-btn.run{background:linear-gradient(135deg,var(--crimson),var(--crimson-dark)); color:#fcf8f0; border-color:var(--gold);}
-        .v-btn.ok.sel{background:#e8f5e9; border-color:#2e7d32; color:#1b5e20;}
-        .v-btn.bad.sel{background:#fdecea; border-color:#c62828; color:#b71c1c;}
-        .verify-status{font-size:.82rem; font-weight:700;}
-        .verify-status.pass{color:#1b5e20;} .verify-status.fail{color:#b71c1c;} .verify-status.pend{color:var(--ink-muted,#836b5c);}
-</style>
+    </style>
 </head>
 <body>
 
@@ -1592,16 +1603,12 @@
                 <button class="nav-tab" data-view="museum" onclick="switchView('museum')">
                     🏛️ Bảo Tàng & Di Sản
                 </button>
-                <button class="nav-tab" data-view="verify" onclick="switchView('verify')">
-                    ✅ Kiểm Chứng AI
-                </button>
             </nav>
 
             <div class="header-meta">
                 <button class="btn-header btn-header-evidence" onclick="openAuditModal()" title="Xem nhật ký kiểm thử và xuất minh chứng CSV/JSON">
                     📊 Minh chứng (CSV/JSON)
                 </button>
-                <select id="voicePicker" onchange="onVoicePicked(this.value)" title="Chọn giọng đọc tiếng Việt có trên thiết bị của bạn" style="display:none; max-width:175px; font-family:inherit; font-size:0.78rem; padding:6px 10px; border-radius:999px; border:1.5px solid #d9c5ab; background:#fff; color:#5c4535; cursor:pointer;"></select>
                 <button class="btn-header sound-header-btn" id="headerSoundBtn" onclick="testOrToggleVoice()" title="Bấm để nghe thử giọng đọc của Sử Gia Nhí AI">
                     🔊 Thử giọng đọc
                 </button>
@@ -1691,6 +1698,16 @@
                     </div>
 
                     <div class="dossier-body">
+                    <div class="grade-toggle-row">
+                        <button class="grade-pill active" id="pillPrimary" onclick="switchGradeLevel('primary')">🎒 Tiểu học (Lớp 4 - 5)</button>
+                        <button class="grade-pill" id="pillSecondary" onclick="switchGradeLevel('secondary')">🎓 THCS (Lớp 6 - 9)</button>
+                    </div>
+
+                    <div id="dossierImageContainer" style="margin: 10px 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--border-ancient);">
+                        <img id="dossierImg" src="" alt="Di sản" style="width: 100%; height: 160px; object-fit: cover; display: block;" onerror="this.style.display='none'">
+                        <div id="dossierImgCaption" style="font-size: 0.74rem; color: var(--ink-muted); padding: 4px 8px; background: #faf4e8; font-style: italic;"></div>
+                    </div>
+
                         <div class="dossier-block">
                             <h4>📜 Bối cảnh lịch sử</h4>
                             <p id="dossierDesc">Đang tải thông tin...</p>
@@ -1707,12 +1724,6 @@
                             <h4>👤 Danh nhân & Địa danh gắn liền</h4>
                             <p id="dossierFigures" style="font-weight:600; color:var(--crimson-dark);">Đang cập nhật...</p>
                         </div>
-
-                        <!-- Modern place mapping (per BGK feedback) -->
-                        <div class="dossier-block" style="background:var(--gold-light,#fef8ea); border:1px solid var(--gold); border-radius:10px; padding:10px 12px;">
-                            <h4>📍 Ngày nay nơi này thuộc</h4>
-                            <p id="dossierModern" style="font-weight:600;">Đang cập nhật...</p>
-                        </div>
                     </div>
 
                     <div class="dossier-actions">
@@ -1721,9 +1732,6 @@
                         </button>
                         <button class="btn-speak-stage" onclick="speakCurrentStage()">
                             🔊 Nghe Sử Gia Nhí tóm tắt
-                        </button>
-                        <button class="btn-speak-stage" style="background:#fff;" onclick="openStageSources()">
-                            📖 Xem tư liệu gốc
                         </button>
                     </div>
                 </div>
@@ -1938,27 +1946,6 @@
             </div>
         </section>
 
-        <!-- ============================================== -->
-        <!-- VIEW 5: KIỂM CHỨNG ĐỘ CHÍNH XÁC AI             -->
-        <!-- ============================================== -->
-        <section class="view-panel" id="view-verify">
-            <div class="section-headline" style="margin-bottom: 18px;">
-                <span class="badge">MINH CHỨNG ĐỘ TIN CẬY • DÀNH CHO BAN GIÁM KHẢO & GIÁO VIÊN</span>
-                <h2>Kiểm Chứng Độ Chính Xác Của Sử Gia Nhí AI</h2>
-                <p>Bộ 15 câu hỏi có đáp án chuẩn đối chiếu theo Tài liệu Giáo dục Địa phương (Lớp 4, Lớp 6) và hồ sơ hai Bảo tàng</p>
-            </div>
-            <div class="verify-note">
-                <b>Cách kiểm chứng (3 bước):</b> ① Bấm <b>"▶ Chạy toàn bộ"</b> — hệ thống lần lượt gửi 15 câu hỏi chuẩn tới AI và hiển thị câu trả lời thật ngay bên dưới đáp án chuẩn. ② Đối chiếu từng câu: hệ thống tự so khớp các <b>từ khóa cốt lõi</b> và gợi ý Đạt/Chưa đạt, thầy cô bấm <b>Đúng/Sai</b> để chấm chính thức. ③ Tỉ lệ chính xác được tính <b>tự động từ kết quả chấm thật</b>; bấm <b>"📋 Sao chép báo cáo"</b> để lưu minh chứng (dán vào Google Docs).
-            </div>
-            <div class="verify-toolbar">
-                <button class="v-btn run" onclick="runAllVerification()" id="btnRunAll">▶ Chạy toàn bộ 15 câu</button>
-                <button class="v-btn" onclick="copyVerifyReport()">📋 Sao chép báo cáo</button>
-                <span id="verifyProgress" style="font-size:.85rem; color:var(--ink-muted,#836b5c);"></span>
-                <span class="verify-score" id="verifyScore">Chưa chấm câu nào</span>
-            </div>
-            <div id="verifyList"></div>
-        </section>
-
     </main>
 
     <!-- ============================================== -->
@@ -2168,74 +2155,981 @@
         // ==============================================================
         const PLACE_NAMES_DATA = [
             {
-                currentName: "Thành phố Đà Nẵng (Đại đô thị trực thuộc TƯ)",
-                ancient: "Thuộc châu Amaravati (Vương quốc Lâm Ấp / Champa)",
-                feudal: "Đạo Thừa Tuyên Quảng Nam (1471); Tiền cảng Cửa Hàn thời chúa Nguyễn",
-                colonial: "Thành phố nhượng địa Tourane (1888 - 1945)",
-                post2025: "Tái sáp nhập TP Đà Nẵng (cũ) và tỉnh Quảng Nam thành Thành phố Đà Nẵng mới trực thuộc TƯ (diện tích 11.859,62 km²)",
-                significance: "Đô thị trung tâm lớn nhất miền Trung; kết nối di sản kép UNESCO Mỹ Sơn & Hội An, cảng Liên Chiểu và KKT Chu Lai."
+                        "currentName": "Thành phố Đà Nẵng (Đại đô thị trực thuộc TƯ)",
+                        "ancient": "Châu Amaravati (Vương quốc Lâm Ấp / Champa)",
+                        "feudal": "Đạo Thừa tuyên Quảng Nam (huyện Diên Phước, phủ Triệu Phong)",
+                        "colonial": "Tiền cảng Cửa Hàn",
+                        "post2025": "Tái sáp nhập TP Đà Nẵng (cũ) và tỉnh Quảng Nam thành Thành phố Đà Nẵng mới trực thuộc TƯ gồm 94 đơn vị hành chính cấp xã, diện tích 11.859,62 km².",
+                        "significance": "Đại đô thị trung tâm miền Trung kết nối di sản thế giới kép UNESCO Mỹ Sơn - Hội An và trung tâm kinh tế biển."
             },
             {
-                currentName: "Phường Điện Bàn & Phường Điện Bàn Đông/Bắc",
-                ancient: "Cương vực Bắc Champa ven sông Thu Bồn",
-                feudal: "Dinh trấn Thanh Chiêm (thành lập 1602), thủ phủ thứ hai của Đàng Trong, cái nôi chữ Quốc ngữ",
-                colonial: "Phủ Điện Bàn thuộc tỉnh Quảng Nam",
-                post2025: "Gồm các phường Điện Bàn, Điện Bàn Đông, Điện Bàn Bắc, An Thắng và các xã Điện Bàn Tây, Gò Nổi thuộc TP Đà Nẵng",
-                significance: "Cái nôi ra đời chữ Quốc ngữ từ năm 1615; làng nghề đúc đồng Phước Kiều hơn 400 năm tuổi."
+                        "currentName": "Phường Điện Bàn & Các phường phụ cận (Điện Bàn Đông, Điện Bàn Bắc, An Thắng)",
+                        "ancient": "Dinh trấn Thanh Chiêm",
+                        "feudal": "Phủ Điện Bàn, tỉnh Quảng Nam",
+                        "colonial": "Trực thuộc Quảng Nam / Tourane",
+                        "post2025": "Sắp xếp thành các phường Điện Bàn, Điện Bàn Đông, Điện Bàn Bắc, An Thắng và các xã Điện Bàn Tây, Gò Nổi thuộc TP Đà Nẵng mới.",
+                        "significance": "Cái nôi ra đời chữ Quốc ngữ; làng nghề đúc đồng Phước Kiều hơn 400 năm tuổi."
             },
             {
-                currentName: "Phường Hội An, Hội An Đông, Hội An Tây",
-                ancient: "Thương cảng Đại Chiêm Hải Khẩu của Champa",
-                feudal: "Đô thị thương cảng quốc tế Hội An sầm uất (Phố khách, Chùa Cầu, hội quán)",
-                colonial: "Thị xã Faifo",
-                post2025: "Gồm 3 phường trung tâm Hội An thuộc TP Đà Nẵng mới, gắn liền với di sản sông Hoài",
-                significance: "Di sản Văn hóa Thế giới UNESCO (1999); bảo tồn nguyên vẹn quần thể kiến trúc gỗ truyền thống Á Đông."
+                        "currentName": "Phường Hội An, Hội An Đông, Hội An Tây",
+                        "ancient": "Thương cảng Đại Chiêm Hải Khẩu",
+                        "feudal": "Đô thị thương cảng quốc tế Hội An (Faifo)",
+                        "colonial": "Trực thuộc Quảng Nam / Tourane",
+                        "post2025": "Gồm 3 phường trung tâm Hội An thuộc TP Đà Nẵng mới.",
+                        "significance": "Di sản Văn hóa Thế giới UNESCO (1999); quần thể kiến trúc gỗ truyền thống Á Đông nguyên vẹn."
             },
             {
-                currentName: "Xã Thu Bồn (Khu vực Duy Xuyên cũ)",
-                ancient: "Thánh địa tôn giáo thiêng Mỹ Sơn (Amaravati)",
-                feudal: "Vùng thung lũng đền tháp thuộc huyện Diên Phước, phủ Điện Bàn",
-                colonial: "Địa bàn khảo cổ học Champa do Viện Viễn Đông Bác Cổ khai quật",
-                post2025: "Hợp nhất các xã Duy Châu, Duy Hòa, Duy Phú, Duy Tân thành xã Thu Bồn, TP Đà Nẵng",
-                significance: "Chứa đựng Quần thể Đền tháp Mỹ Sơn — Di sản Văn hóa Thế giới UNESCO với hơn 70 công trình đền tháp Chăm."
+                        "currentName": "Xã Thu Bồn (Khu vực Duy Xuyên cũ)",
+                        "ancient": "Thánh địa Mỹ Sơn (Amaravati)",
+                        "feudal": "Chưa có tài liệu",
+                        "colonial": "Trực thuộc Quảng Nam / Tourane",
+                        "post2025": "Hợp nhất các xã Duy Châu, Duy Hòa, Duy Phú, Duy Tân thành xã Thu Bồn, TP Đà Nẵng.",
+                        "significance": "Chứa Quần thể Đền tháp Mỹ Sơn - Di sản Văn hóa Thế giới UNESCO."
             },
             {
-                currentName: "Phường Hải Châu & Thành Điện Hải",
-                ancient: "Vùng đất hoang sơ ven cửa biển Hàn",
-                feudal: "Làng cổ Hải Châu; Đồn Điện Hải (1813), Thành Điện Hải xây kiên cố (1823)",
-                colonial: "Trung tâm nhượng địa Tourane (Tòa Đốc lý, bến cảng Bạch Đằng)",
-                post2025: "Phường Hải Châu mới (hợp nhất từ Thanh Bình, Thuận Phước, Thạch Thang, Phước Ninh, Hải Châu)",
-                significance: "Trung tâm hành chính - văn hóa của thành phố; Di tích Quốc gia Đặc biệt Thành Điện Hải gắn với mặt trận 1858."
+                        "currentName": "Phường Hải Châu (Hải Châu mới)",
+                        "ancient": "Làng cổ Hải Châu & Thành Điện Hải",
+                        "feudal": "Trung tâm nhượng địa Tourane",
+                        "colonial": "Trực thuộc Quảng Nam / Tourane",
+                        "post2025": "Hợp nhất các phường Thanh Bình, Thuận Phước, Thạch Thang, Phước Ninh, Hải Châu thành phường Hải Châu mới.",
+                        "significance": "Trung tâm hành chính - văn hóa của thành phố; Di tích Quốc gia Đặc biệt Thành Điện Hải gắn với mặt trận 1858."
             },
             {
-                currentName: "Xã Núi Thành & Khu kinh tế mở Chu Lai",
-                ancient: "Cửa biển Tam Hải, Kỳ Hà cổ kính",
-                feudal: "Vùng duyên hải phía Nam xứ Quảng, giáp Quảng Ngãi",
-                colonial: "Căn cứ ven biển nam Trung Kỳ",
-                post2025: "Gồm các xã Núi Thành, Tam Mỹ, Tam Anh, Tam Xuân, Tam Hải thuộc TP Đà Nẵng mới",
-                significance: "Khu kinh tế mở Chu Lai — KKT mở đầu tiên của Việt Nam; trung tâm công nghiệp ô tô và logistics biển."
+                        "currentName": "Xã Núi Thành & Khu Kinh tế mở Chu Lai",
+                        "ancient": "Cửa biển Kỳ Hà, Tam Hải",
+                        "feudal": "Chưa có tài liệu",
+                        "colonial": "Trực thuộc Quảng Nam / Tourane",
+                        "post2025": "Gồm các xã Núi Thành, Tam Mỹ, Tam Anh, Tam Xuân, Tam Hải thuộc TP Đà Nẵng mới.",
+                        "significance": "Khu kinh tế mở Chu Lai - KKT mở đầu tiên của Việt Nam, trung tâm công nghiệp ô tô và cảng biển."
             },
             {
-                currentName: "Đặc khu Hoàng Sa",
-                ancient: "Bãi Cát Vàng / Vạn Lý Trường Sa trong hải trình cổ",
-                feudal: "Đội Hoàng Sa triều Nguyễn cắm mốc chủ quyền, đo đạc hải trình",
-                colonial: "Pháp lập đài khí tượng và đồn trú quân sự thuộc tỉnh Thừa Thiên / Đà Nẵng",
-                post2025: "Đặc khu Hoàng Sa thuộc Thành phố Đà Nẵng mới (hơn 30 đảo đá bãi cạn trên vùng biển hơn 15.000 km²)",
-                significance: "Phần lãnh thổ thiêng liêng không thể tách rời của Tổ quốc Việt Nam trên Biển Đông."
+                        "currentName": "Đặc khu Hoàng Sa",
+                        "ancient": "Bãi Cát Vàng / Vạn Lý Hoàng Sa",
+                        "feudal": "Chưa có tài liệu",
+                        "colonial": "Trực thuộc Quảng Nam / Tourane",
+                        "post2025": "Đặc khu Hoàng Sa thuộc Thành phố Đà Nẵng mới (gồm hơn 30 đảo đá bãi cạn trên hơn 15.000 km² vùng biển).",
+                        "significance": "Phần lãnh thổ thiêng liêng không thể tách rời của Tổ quốc Việt Nam trên Biển Đông."
             },
             {
-                currentName: "Xã Tân Hiệp & Quần đảo Cù Lao Chàm",
-                ancient: "Điểm dừng chân tiếp nước ngọt của tàu thuyền quốc tế trên Con đường tơ lụa trên biển",
-                feudal: "Chiêm Bất Lao thuộc xứ Quảng Nam",
-                colonial: "Quần đảo Cù Lao Chàm",
-                post2025: "Xã Tân Hiệp (giữ nguyên không sắp xếp theo NQ 1659), thuộc TP Đà Nẵng",
-                significance: "Khu dự trữ sinh quyển thế giới UNESCO (2009); hệ sinh thái rạn san hô và thảm cỏ biển quý hiếm."
+                        "currentName": "Xã Tân Hiệp & Quần đảo Cù Lao Chàm",
+                        "ancient": "Chiêm Bất Lao",
+                        "feudal": "Chưa có tài liệu",
+                        "colonial": "Trực thuộc Quảng Nam / Tourane",
+                        "post2025": "Xã Tân Hiệp (giữ nguyên không sắp xếp theo NQ 1659), thuộc TP Đà Nẵng.",
+                        "significance": "Khu Dự trữ Sinh quyển Thế giới UNESCO (2009)."
+            },
+            {
+                        "currentName": "Thắng cảnh Hòn Kẽm Đá Dừng (Xã Hiệp Đức)",
+                        "ancient": "Căn cứ Tân Tỉnh - Hòn Kẽm Đá Dừng",
+                        "feudal": "Chưa có tài liệu",
+                        "colonial": "Trực thuộc Quảng Nam / Tourane",
+                        "post2025": "Thuộc địa phận xã Hiệp Đức, Thành phố Đà Nẵng mới.",
+                        "significance": "Thắng cảnh thiên nhiên hùng vĩ trên sông Thu Bồn gắn với câu ca dao 'Ngó lên Hòn Kẽm Đá Dừng' và phong trào Cần Vương."
+            },
+            {
+                        "currentName": "Xã Hòa Vang & Nghĩa trủng Hòa Vang",
+                        "ancient": "Huyện Hòa Vang & Vành đai diệt Mỹ Hòa Vang",
+                        "feudal": "Chưa có tài liệu",
+                        "colonial": "Trực thuộc Quảng Nam / Tourane",
+                        "post2025": "Sắp xếp thành các đơn vị hành chính xã thuộc TP Đà Nẵng mới.",
+                        "significance": "Vùng đất quật cường chống ngoại xâm; nơi lưu giữ các nghĩa trang nghĩa sĩ đầu tiên của cả nước."
             }
-        ];
+];
 
         // ==============================================================
         // 3. DATABASE 16 GIAI ĐOẠN LỊCH SỬ ĐÀ NẴNG (INTACT & ENRICHED)
         // ==============================================================
+        const MASTER_CONTENT_16_TRAM = [
+        {
+                "station_id": 1,
+                "roman_numeral": "I",
+                "official_title": "Tiền Sử & Văn Hóa Sa Huỳnh",
+                "short_title": "Sa Huỳnh & Cội Nguồn",
+                "era_span": "Trước CN – Thế kỷ II",
+                "icon": "🏺",
+                "primary_summary": {
+                        "text": "Từ ngàn năm trước, người cổ Sa Huỳnh đã sinh sống ven biển Sơn Trà và Ngũ Hành Sơn. Các bạn nhỏ có thể nhìn thấy những chiếc chum gốm khổng lồ và khuyên tai hai đầu thú rất đẹp tại Bảo tàng Đà Nẵng nè!",
+                        "target_audience": "Tiểu học (Lớp 4 - 5)",
+                        "derived_from_facts": [
+                                "FACT-SAHUYNH-01"
+                        ]
+                },
+                "secondary_summary": {
+                        "text": "Dấu tích cư dân thời tiền sử cách đây hơn 3.000 năm tại bán đảo Sơn Trà. Nền văn hóa Sa Huỳnh rực rỡ với di chỉ khảo cổ học Vườn đình Khuê Bắc (quận Ngũ Hành Sơn), đặc trưng táng thức mộ chum gốm nung, công cụ sắt và khuyên tai ngọc mã não minh chứng cho giao thương hàng hải biển sớm.",
+                        "target_audience": "THCS (Lớp 6 - 9)",
+                        "derived_from_facts": [
+                                "FACT-SAHUYNH-01"
+                        ]
+                },
+                "verified_fact_ids": [
+                        "FACT-SAHUYNH-01"
+                ],
+                "key_milestones": [
+                        {
+                                "year_or_date": "Cách nay ~3000 năm",
+                                "event_title": "Dấu tích cư dân Sa Huỳnh cổ tại Vườn đình Khuê Bắc",
+                                "fact_id": "FACT-SAHUYNH-01"
+                        }
+                ],
+                "heritage_relics": [
+                        "Di chỉ khảo cổ học Vườn đình Khuê Bắc",
+                        "Mộ chum gốm Sa Huỳnh tại Bảo tàng Đà Nẵng"
+                ],
+                "prominent_figures": "Cư dân bản địa cổ Sa Huỳnh miền Trung",
+                "common_misconceptions": [
+                        {
+                                "misconception": "Nghĩ rằng vùng đất Đà Nẵng chỉ mới có người sinh sống từ thời nhà Trần hoặc chúa Nguyễn.",
+                                "correction": "Khảo cổ học chứng minh từ 3.000 năm trước cư dân Sa Huỳnh đã cư trú và giao thương sầm uất tại đây.",
+                                "factual_basis_fact_id": "FACT-SAHUYNH-01"
+                        }
+                ],
+                "verified_image": {
+                        "filename_or_url": "https://baotangdanang.vn/wp-content/uploads/2019/08/mo-chum-sa-huynh.jpg",
+                        "caption": "Mộ chum văn hóa Sa Huỳnh khai quật tại Ngũ Hành Sơn trưng bày tại Bảo tàng Đà Nẵng",
+                        "historical_context": "Văn hóa Sa Huỳnh thế kỷ I TCN",
+                        "image_source_credit": "Bảo tàng Đà Nẵng"
+                },
+                "status": "VERIFIED"
+        },
+        {
+                "station_id": 2,
+                "roman_numeral": "II",
+                "official_title": "Vương Quốc Lâm Ấp & Champa Cổ Kính",
+                "short_title": "Lâm Ấp & Champa",
+                "era_span": "Thế kỷ II – Thế kỷ X",
+                "icon": "🛕",
+                "primary_summary": {
+                        "text": "Thời kỳ này, vùng đất xứ Quảng thuộc vương quốc Champa với Thánh địa Mỹ Sơn uy nghiêm và kinh đô Trà Kiệu. Các đền tháp được xây bằng gạch nung đỏ rực rất kỳ diệu mà không hề thấy vết vữa!",
+                        "target_audience": "Tiểu học (Lớp 4 - 5)",
+                        "derived_from_facts": [
+                                "FACT-MYSON-01"
+                        ]
+                },
+                "secondary_summary": {
+                        "text": "Đà Nẵng thuộc châu Amaravati của vương quốc Lâm Ấp - Champa. Quần thể Đền tháp Mỹ Sơn được khởi dựng từ thế kỷ IV thờ thần Shiva. Cùng thời kỳ này là Phật viện Đồng Dương (cuối thế kỷ IX) và các di tích Chăm Phong Lệ minh chứng cho đỉnh cao nghệ thuật kiến trúc điêu khắc.",
+                        "target_audience": "THCS (Lớp 6 - 9)",
+                        "derived_from_facts": [
+                                "FACT-MYSON-01"
+                        ]
+                },
+                "verified_fact_ids": [
+                        "FACT-MYSON-01"
+                ],
+                "key_milestones": [
+                        {
+                                "year_or_date": "Thế kỷ IV",
+                                "event_title": "Khởi dựng Thánh địa tôn giáo Mỹ Sơn dưới triều vua Bhadravarman I",
+                                "fact_id": "FACT-MYSON-01"
+                        }
+                ],
+                "heritage_relics": [
+                        "Quần thể Đền tháp Mỹ Sơn (UNESCO 1999)",
+                        "Kinh đô Simhapura (Trà Kiệu)",
+                        "Di chỉ tháp Chăm Phong Lệ"
+                ],
+                "prominent_figures": "Vua Bhadravarman I; Vua Indravarman II (Phật viện Đồng Dương)",
+                "common_misconceptions": [
+                        {
+                                "misconception": "Nghĩ rằng Mỹ Sơn chỉ thuộc tỉnh Quảng Nam cũ nên học sinh Đà Nẵng không cần học.",
+                                "correction": "Từ 01/7/2025 theo NQ 1659, Mỹ Sơn thuộc xã Thu Bồn, thành phố Đà Nẵng và là di sản trọng điểm trong GDĐP Lớp 6.",
+                                "factual_basis_fact_id": "FACT-MYSON-01"
+                        }
+                ],
+                "verified_image": {
+                        "filename_or_url": "https://disanmy-son.vn/wp-content/uploads/2020/09/den-thap-my-son.jpg",
+                        "caption": "Quần thể đền tháp Mỹ Sơn xây dựng liên tục từ thế kỷ IV đến thế kỷ XIII",
+                        "historical_context": "Di sản Văn hóa Thế giới UNESCO",
+                        "image_source_credit": "Ban Quản lý Di sản Văn hóa Mỹ Sơn"
+                },
+                "status": "VERIFIED"
+        },
+        {
+                "station_id": 3,
+                "roman_numeral": "III",
+                "official_title": "Thời Kỳ Đại Việt Mở Cõi Phương Nam",
+                "short_title": "Đại Việt Mở Cõi",
+                "era_span": "1306 – 1470",
+                "icon": "👑",
+                "primary_summary": {
+                        "text": "Năm 1306, Công chúa Huyền Trân kết duyên cùng vua Chế Mân, mang về cho nước ta hai châu Ô và Lý. Vùng đất Đà Nẵng bắt đầu đón những người dân Đại Việt hiền hòa vào khai hoang lập ấp.",
+                        "target_audience": "Tiểu học (Lớp 4 - 5)",
+                        "derived_from_facts": [
+                                "FACT-DINHTRAN-01"
+                        ]
+                },
+                "secondary_summary": {
+                        "text": "Cuộc hôn duyên lịch sử năm 1306 giữa Công chúa Huyền Trân và vua Jaya Simhavarman III (Chế Mân) đưa hai châu Ô, Lý về cương vực Đại Việt (vua Trần Anh Tông đổi tên thành Thuận Hóa). Cư dân người Việt bắt đầu cùng chung sống hòa hợp với cư dân bản địa ven cửa biển Cửa Hàn.",
+                        "target_audience": "THCS (Lớp 6 - 9)",
+                        "derived_from_facts": [
+                                "FACT-DINHTRAN-01"
+                        ]
+                },
+                "verified_fact_ids": [
+                        "FACT-DINHTRAN-01"
+                ],
+                "key_milestones": [
+                        {
+                                "year_or_date": "1306",
+                                "event_title": "Sự kiện Công chúa Huyền Trân; sáp nhập hai châu Ô, Lý vào Đại Việt",
+                                "fact_id": "FACT-DINHTRAN-01"
+                        }
+                ],
+                "heritage_relics": [
+                        "Địa danh Cửa Hàn (Đà Nẵng)",
+                        "Đền thờ Công chúa Huyền Trân"
+                ],
+                "prominent_figures": "Công chúa Huyền Trân; Vua Trần Nhân Tông; Vua Trần Anh Tông",
+                "common_misconceptions": [
+                        {
+                                "misconception": "Nghĩ rằng Đà Nẵng được sáp nhập vào Đại Việt từ thời nhà Lý.",
+                                "correction": "Phải đến năm 1306 thời nhà Trần, cương vực Đại Việt mới mở rộng đến bờ bắc sông Thu Bồn.",
+                                "factual_basis_fact_id": "FACT-DINHTRAN-01"
+                        }
+                ],
+                "verified_image": {
+                        "filename_or_url": "https://baodanang.vn/dataimages/202104/original/images1618392_huyen_tran.jpg",
+                        "caption": "Tượng Công chúa Huyền Trân - biểu tượng mở cõi phương Nam năm 1306",
+                        "historical_context": "Thời nhà Trần (1306)",
+                        "image_source_credit": "Tư liệu Lịch sử Xứ Quảng"
+                },
+                "status": "VERIFIED"
+        },
+        {
+                "station_id": 4,
+                "roman_numeral": "IV",
+                "official_title": "Đạo Thừa Tuyên Quảng Nam Thời Lê Sơ",
+                "short_title": "Đạo Thừa Tuyên 1471",
+                "era_span": "1471 – 1558",
+                "icon": "📜",
+                "primary_summary": {
+                        "text": "Năm 1471, vua Lê Thánh Tông tài ba đã đặt tên cho vùng đất quê hương mình là 'Quảng Nam' - nghĩa là dải đất phương Nam rộng lớn và yên bình đó các bạn!",
+                        "target_audience": "Tiểu học (Lớp 4 - 5)",
+                        "derived_from_facts": [
+                                "FACT-DINHTRAN-01"
+                        ]
+                },
+                "secondary_summary": {
+                        "text": "Tháng 6/1471, vua Lê Thánh Tông ban sắc chỉ thành lập Đạo Thừa tuyên Quảng Nam (đạo thứ 13 của Đại Việt), với ý nghĩa 'mở rộng về phương Nam'. Đà Nẵng thuộc huyện Diên Phước, phủ Triệu Phong. Hệ thống làng xã cổ bắt đầu định hình vững chắc.",
+                        "target_audience": "THCS (Lớp 6 - 9)",
+                        "derived_from_facts": [
+                                "FACT-DINHTRAN-01"
+                        ]
+                },
+                "verified_fact_ids": [
+                        "FACT-DINHTRAN-01"
+                ],
+                "key_milestones": [
+                        {
+                                "year_or_date": "Tháng 6/1471",
+                                "event_title": "Vua Lê Thánh Tông định danh Đạo Thừa tuyên Quảng Nam",
+                                "fact_id": "FACT-DINHTRAN-01"
+                        }
+                ],
+                "heritage_relics": [
+                        "Hệ thống đình làng cổ Hải Châu, Thạch Bộ, Túy Loan"
+                ],
+                "prominent_figures": "Vua Lê Thánh Tông; Các vị Tiền hiền khai hoang lập làng",
+                "common_misconceptions": [
+                        {
+                                "misconception": "Nghĩ rằng tên gọi 'Quảng Nam' do các chúa Nguyễn đặt ra.",
+                                "correction": "Tên gọi 'Quảng Nam' chính thức do vua Lê Thánh Tông đặt vào tháng 6 năm 1471.",
+                                "factual_basis_fact_id": "FACT-DINHTRAN-01"
+                        }
+                ],
+                "verified_image": {
+                        "filename_or_url": "https://baodanang.vn/dataimages/202106/original/images1623812_le_thanh_tong.jpg",
+                        "caption": "Sắc chỉ định danh Đạo Thừa Tuyên Quảng Nam năm 1471",
+                        "historical_context": "Vua Lê Thánh Tông mở cõi 1471",
+                        "image_source_credit": "Bảo tàng Đà Nẵng"
+                },
+                "status": "VERIFIED"
+        },
+        {
+                "station_id": 5,
+                "roman_numeral": "V",
+                "official_title": "Thương Cảng Quốc Tế Hội An & Cửa Hàn",
+                "short_title": "Thương Cảng Hội An - Cửa Hàn",
+                "era_span": "1558 – 1600",
+                "icon": "⛵",
+                "primary_summary": {
+                        "text": "Tàu buôn từ Nhật Bản, Trung Quốc và châu Âu tấp nập cập bến Hội An và Cửa Hàn để mua lụa tơ tằm, trầm hương và đồ gốm. Phố cổ Hội An ngày nay vẫn giữ được những mái ngói rêu phong tuyệt đẹp!",
+                        "target_audience": "Tiểu học (Lớp 4 - 5)",
+                        "derived_from_facts": [
+                                "FACT-DINHTRAN-01"
+                        ]
+                },
+                "secondary_summary": {
+                        "text": "Dưới thời chúa Tiên Nguyễn Hoàng, Hội An (Faifo) trở thành đô thị thương cảng quốc tế sầm uất bậc nhất Đông Nam Á trên 'Con đường tơ lụa và gốm sứ trên biển'. Tiền cảng Cửa Hàn (Đà Nẵng) giữ vai trò trạm trung chuyển nước ngọt và trú bão chiến lược cho các hải đoàn tàu buôn.",
+                        "target_audience": "THCS (Lớp 6 - 9)",
+                        "derived_from_facts": [
+                                "FACT-DINHTRAN-01"
+                        ]
+                },
+                "verified_fact_ids": [
+                        "FACT-DINHTRAN-01"
+                ],
+                "key_milestones": [
+                        {
+                                "year_or_date": "1558",
+                                "event_title": "Chúa Nguyễn Hoàng vào trấn thủ xứ Thuận Hóa, mở đầu kỷ nguyên Đàng Trong",
+                                "fact_id": "FACT-DINHTRAN-01"
+                        }
+                ],
+                "heritage_relics": [
+                        "Đô thị cổ Hội An (UNESCO 1999)",
+                        "Cửa Hàn cổ",
+                        "Chùa Cầu Nhật Bản"
+                ],
+                "prominent_figures": "Chúa Tiên Nguyễn Hoàng; Các thương nhân Châu Ấn thuyền Nhật Bản",
+                "common_misconceptions": [
+                        {
+                                "misconception": "Nghĩ rằng thời chúa Nguyễn tàu thuyền phương Tây chỉ cập cảng Hải Phòng hoặc Sài Gòn.",
+                                "correction": "Hội An và Cửa Hàn (Đà Nẵng) là cửa ngõ giao thương quốc tế quan trọng nhất của Xứ Đàng Trong suốt thế kỷ XVI-XVIII.",
+                                "factual_basis_fact_id": "FACT-DINHTRAN-01"
+                        }
+                ],
+                "verified_image": {
+                        "filename_or_url": "https://baodanang.vn/dataimages/202008/original/images1597812_pho_co_hoi_an.jpg",
+                        "caption": "Thương cảng quốc tế Hội An thế kỷ XVII trên dòng sông Thu Bồn",
+                        "historical_context": "Di sản Văn hóa Thế giới UNESCO Hội An",
+                        "image_source_credit": "Bảo tàng Hội An"
+                },
+                "status": "VERIFIED"
+        },
+        {
+                "station_id": 6,
+                "roman_numeral": "VI",
+                "official_title": "Dinh Trấn Thanh Chiêm & Chữ Quốc Ngữ",
+                "short_title": "Dinh Trấn Thanh Chiêm 1602",
+                "era_span": "1602 – 1650",
+                "icon": "🖋️",
+                "primary_summary": {
+                        "text": "Dinh trấn Thanh Chiêm (nay thuộc phường Điện Bàn) là nơi ra đời của chữ Quốc ngữ bằng mẫu tự Latinh mà chúng mình đang đọc viết mỗi ngày đó! Nơi đây còn nổi tiếng với Làng đúc đồng Phước Kiều đúc cồng chiêng rất hay.",
+                        "target_audience": "Tiểu học (Lớp 4 - 5)",
+                        "derived_from_facts": [
+                                "FACT-DINHTRAN-01",
+                                "FACT-PHUOCKIEU-01"
+                        ]
+                },
+                "secondary_summary": {
+                        "text": "Năm 1602, chúa Tiên Nguyễn Hoàng lập Dinh trấn Thanh Chiêm, thủ phủ thứ hai của Đàng Trong. Nơi đây các giáo sĩ Dòng Tên (tiêu biểu Francisco de Pina) học tiếng Việt và sáng tạo chữ Quốc ngữ (từ 1615). Làng nghề đúc đồng Phước Kiều đỏ lửa cung cấp súng đạn, chuông chiêng cho Dinh trấn suốt 400 năm.",
+                        "target_audience": "THCS (Lớp 6 - 9)",
+                        "derived_from_facts": [
+                                "FACT-DINHTRAN-01",
+                                "FACT-PHUOCKIEU-01"
+                        ]
+                },
+                "verified_fact_ids": [
+                        "FACT-DINHTRAN-01",
+                        "FACT-PHUOCKIEU-01"
+                ],
+                "key_milestones": [
+                        {
+                                "year_or_date": "1602",
+                                "event_title": "Chúa Nguyễn Hoàng thành lập Dinh trấn Thanh Chiêm",
+                                "fact_id": "FACT-DINHTRAN-01"
+                        },
+                        {
+                                "year_or_date": "1615",
+                                "event_title": "Giáo sĩ Francisco de Pina đến Thanh Chiêm, phôi thai chữ Quốc ngữ",
+                                "fact_id": "FACT-DINHTRAN-01"
+                        }
+                ],
+                "heritage_relics": [
+                        "Di tích Dinh trấn Thanh Chiêm",
+                        "Làng đúc đồng Phước Kiều 400 năm"
+                ],
+                "prominent_figures": "Chúa Sãi Nguyễn Phúc Nguyên; Giáo sĩ Francisco de Pina; Nghệ nhân làng Phước Kiều",
+                "common_misconceptions": [
+                        {
+                                "misconception": "Nghĩ rằng Alexandre de Rhodes một mình sáng chế ra chữ Quốc ngữ tại châu Âu.",
+                                "correction": "Cái nôi thực sự phôi thai chữ Quốc ngữ là Dinh trấn Thanh Chiêm (Điện Bàn) từ năm 1615 nhờ công sức giáo sĩ Francisco de Pina cùng các thầy giảng người Việt.",
+                                "factual_basis_fact_id": "FACT-DINHTRAN-01"
+                        }
+                ],
+                "verified_image": {
+                        "filename_or_url": "https://baodanang.vn/dataimages/202010/original/images1602812_thanh_chiem.jpg",
+                        "caption": "Bia di tích Dinh trấn Thanh Chiêm - cái nôi chữ Quốc ngữ tại Điện Bàn",
+                        "historical_context": "Thế kỷ XVII",
+                        "image_source_credit": "UBND Thị xã Điện Bàn"
+                },
+                "status": "VERIFIED"
+        },
+        {
+                "station_id": 7,
+                "roman_numeral": "VII",
+                "official_title": "Phong Trào Tây Sơn & Căn Cứ Cửa Hàn",
+                "short_title": "Thời Đại Tây Sơn",
+                "era_span": "1771 – 1802",
+                "icon": "⚔️",
+                "primary_summary": {
+                        "text": "Ba anh em Tây Sơn dũng mãnh, đặc biệt là Anh hùng Quang Trung - Nguyễn Huệ, đã nhiều lần qua lại Cửa Hàn để chỉ huy thủy quân, lập nên những chiến công hiển hách đánh bại quân xâm lược.",
+                        "target_audience": "Tiểu học (Lớp 4 - 5)",
+                        "derived_from_facts": [
+                                "FACT-DINHTRAN-01"
+                        ]
+                },
+                "secondary_summary": {
+                        "text": "Trong phong trào khởi nghĩa Tây Sơn, vùng vịnh Đà Nẵng và cửa sông Hàn giữ vị trí căn cứ hải quân yết hầu. Năm 1775, quân Tây Sơn do Nguyễn Huệ chỉ huy đã đánh bại quân Trịnh và quân chúa Nguyễn, kiểm soát toàn bộ phòng tuyến miền Trung làm bàn đạp tiến ra Bắc Hà.",
+                        "target_audience": "THCS (Lớp 6 - 9)",
+                        "derived_from_facts": [
+                                "FACT-DINHTRAN-01"
+                        ]
+                },
+                "verified_fact_ids": [
+                        "FACT-DINHTRAN-01"
+                ],
+                "key_milestones": [
+                        {
+                                "year_or_date": "1775",
+                                "event_title": "Quân Tây Sơn giải phóng vùng đất Quảng Nam - Cửa Hàn",
+                                "fact_id": "FACT-DINHTRAN-01"
+                        }
+                ],
+                "heritage_relics": [
+                        "Vịnh Cửa Hàn",
+                        "Pháo đài cổ Tây Sơn"
+                ],
+                "prominent_figures": "Hoàng đế Quang Trung (Nguyễn Huệ); Thái phó Nguyễn Văn Nhơn",
+                "common_misconceptions": [
+                        {
+                                "misconception": "Nghĩ rằng phong trào Tây Sơn chỉ diễn ra ở Bình Định và Thăng Long.",
+                                "correction": "Đà Nẵng và Quảng Nam là chiến trường quyết định nơi quân Tây Sơn bẻ gãy gọng kìm liên minh Trịnh - Nguyễn.",
+                                "factual_basis_fact_id": "FACT-DINHTRAN-01"
+                        }
+                ],
+                "verified_image": {
+                        "filename_or_url": "https://baodanang.vn/dataimages/202102/original/images1612812_quang_trung.jpg",
+                        "caption": "Tượng đài Hoàng đế Quang Trung chỉ huy thủy quân Tây Sơn",
+                        "historical_context": "Kỷ nguyên Tây Sơn (1771-1802)",
+                        "image_source_credit": "Bảo tàng Lịch sử Quân sự"
+                },
+                "status": "VERIFIED"
+        },
+        {
+                "station_id": 8,
+                "roman_numeral": "VIII",
+                "official_title": "Triều Nguyễn & Phòng Tuyến Vịnh Đà Nẵng",
+                "short_title": "Triều Nguyễn & Hải Vân Quan",
+                "era_span": "1802 – 1858",
+                "icon": "🏯",
+                "primary_summary": {
+                        "text": "Vua Gia Long và vua Minh Mạng cho xây đồn Điện Hải và cửa ải Hải Vân Quan hùng vĩ được mệnh danh là 'Thiên hạ đệ nhất hùng quan' để bảo vệ vịnh biển Đà Nẵng.",
+                        "target_audience": "Tiểu học (Lớp 4 - 5)",
+                        "derived_from_facts": [
+                                "FACT-DIENHAI-01"
+                        ]
+                },
+                "secondary_summary": {
+                        "text": "Triều Nguyễn quy định Đà Nẵng là tiền cảng duy nhất được tàu buôn phương Tây cập bến. Năm 1813 vua Gia Long lập đồn Điện Hải, năm 1823 vua Minh Mạng nâng cấp thành Thành Điện Hải (thành Vauban). Năm 1826 xây dựng Hải Vân Quan trên đỉnh đèo Hải Vân tạo thành tuyến phòng thủ chiến lược bảo vệ kinh đô Huế.",
+                        "target_audience": "THCS (Lớp 6 - 9)",
+                        "derived_from_facts": [
+                                "FACT-DIENHAI-01"
+                        ]
+                },
+                "verified_fact_ids": [
+                        "FACT-DIENHAI-01"
+                ],
+                "key_milestones": [
+                        {
+                                "year_or_date": "1813",
+                                "event_title": "Vua Gia Long cho đắp đồn Điện Hải bảo vệ cửa biển",
+                                "fact_id": "FACT-DIENHAI-01"
+                        },
+                        {
+                                "year_or_date": "1826",
+                                "event_title": "Vua Minh Mạng cho xây dựng cửa ải Hải Vân Quan",
+                                "fact_id": "FACT-DIENHAI-01"
+                        }
+                ],
+                "heritage_relics": [
+                        "Hải Vân Quan (Di tích Quốc gia)",
+                        "Thành Điện Hải nguyên bản 1823"
+                ],
+                "prominent_figures": "Vua Gia Long; Vua Minh Mạng",
+                "common_misconceptions": [
+                        {
+                                "misconception": "Nghĩ rằng Hải Vân Quan do thực dân Pháp xây dựng để kiểm soát đèo.",
+                                "correction": "Hải Vân Quan do vua Minh Mạng triều Nguyễn cho xây dựng năm 1826 bằng gạch đá kiên cố.",
+                                "factual_basis_fact_id": "FACT-DIENHAI-01"
+                        }
+                ],
+                "verified_image": {
+                        "filename_or_url": "https://baodanang.vn/dataimages/202107/original/images1626812_hai_van_quan.jpg",
+                        "caption": "Di tích Hải Vân Quan - 'Thiên hạ đệ nhất hùng quan' xây năm 1826",
+                        "historical_context": "Triều Nguyễn (1826)",
+                        "image_source_credit": "Bảo tàng Đà Nẵng"
+                },
+                "status": "VERIFIED"
+        },
+        {
+                "station_id": 9,
+                "roman_numeral": "IX",
+                "official_title": "Tiếng Súng Kháng Pháp 1858 & Thành Điện Hải",
+                "short_title": "Mặt Trận 1858 & Điện Hải",
+                "era_span": "1858 – 1860",
+                "icon": "💣",
+                "primary_summary": {
+                        "text": "Ngày 01/9/1858, quân Pháp nổ súng tấn công Đà Nẵng. Danh tướng Nguyễn Tri Phương cùng quân dân ta đã dũng cảm chặn đứng giặc tại Thành Điện Hải suốt 18 tháng, buộc giặc phải rút lui!",
+                        "target_audience": "Tiểu học (Lớp 4 - 5)",
+                        "derived_from_facts": [
+                                "FACT-DIENHAI-01",
+                                "FACT-NGHIA-TRUNG-01"
+                        ]
+                },
+                "secondary_summary": {
+                        "text": "Ngày 01/09/1858, Liên quân Pháp - Tây Ban Nha nổ súng xâm lược vịnh Đà Nẵng. Danh tướng Nguyễn Tri Phương chỉ huy đắp chiến lũy Liên Trì dài hàng ngàn trượng, thực hiện 'vườn không nhà trống', giam chân giặc suốt 18 tháng, bẻ gãy âm mưu đánh nhanh thắng nhanh buộc chúng rút khỏi Đà Nẵng tháng 3/1860. Thành Điện Hải được công nhận là Di tích Quốc gia Đặc biệt năm 2017.",
+                        "target_audience": "THCS (Lớp 6 - 9)",
+                        "derived_from_facts": [
+                                "FACT-DIENHAI-01",
+                                "FACT-NGHIA-TRUNG-01"
+                        ]
+                },
+                "verified_fact_ids": [
+                        "FACT-DIENHAI-01",
+                        "FACT-NGHIA-TRUNG-01"
+                ],
+                "key_milestones": [
+                        {
+                                "year_or_date": "01/09/1858",
+                                "event_title": "Tiếng súng xâm lược đầu tiên của thực dân Pháp tại bán đảo Sơn Trà",
+                                "fact_id": "FACT-DIENHAI-01"
+                        },
+                        {
+                                "year_or_date": "Tháng 3/1860",
+                                "event_title": "Quân Pháp thất bại kế hoạch đánh nhanh, rút quân khỏi Đà Nẵng",
+                                "fact_id": "FACT-DIENHAI-01"
+                        }
+                ],
+                "heritage_relics": [
+                        "Di tích Quốc gia Đặc biệt Thành Điện Hải",
+                        "Nghĩa trủng Hòa Vang",
+                        "Nghĩa trủng Phước Ninh"
+                ],
+                "prominent_figures": "Danh tướng Nguyễn Tri Phương; Tướng quân Lê Đình Lý; Các nghĩa sĩ 1858",
+                "common_misconceptions": [
+                        {
+                                "misconception": "Nghĩ rằng Pháp chiếm được Đà Nẵng ngay trong năm 1858.",
+                                "correction": "Quân dân Đà Nẵng dưới sự chỉ huy của Nguyễn Tri Phương đã giam chân giặc suốt 18 tháng và đánh lui quân xâm lược vào tháng 3/1860.",
+                                "factual_basis_fact_id": "FACT-DIENHAI-01"
+                        }
+                ],
+                "verified_image": {
+                        "filename_or_url": "https://baotangdanang.vn/wp-content/uploads/2019/08/thanh-dien-hai-danang.jpg",
+                        "caption": "Thành Điện Hải - Di tích Quốc gia Đặc biệt chứng tích cuộc kháng chiến 1858-1860",
+                        "historical_context": "Bảo tàng Đà Nẵng",
+                        "image_source_credit": "Bảo tàng Đà Nẵng"
+                },
+                "status": "VERIFIED"
+        },
+        {
+                "station_id": 10,
+                "roman_numeral": "X",
+                "official_title": "Phong Trào Cần Vương & Nghĩa Hội Xứ Quảng",
+                "short_title": "Cần Vương & Nghĩa Hội",
+                "era_span": "1885 – 1887",
+                "icon": "🚩",
+                "primary_summary": {
+                        "text": "Hưởng ứng Chiếu Cần Vương, Tướng quân Nguyễn Duy Hiệu lập căn cứ Tân Tỉnh tại Hòn Kẽm Đá Dừng trên sông Thu Bồn để đánh Pháp. Dù hy sinh anh dũng nhưng tên tuổi của ông mãi được nhân dân kính yêu!",
+                        "target_audience": "Tiểu học (Lớp 4 - 5)",
+                        "derived_from_facts": [
+                                "FACT-HONKEM-01"
+                        ]
+                },
+                "secondary_summary": {
+                        "text": "Năm 1885, phong trào Nghĩa Hội Quảng Nam do Trần Văn Dư và sau đó là Tướng quân Nguyễn Duy Hiệu (Hường Hiệu) lãnh đạo hưởng ứng Chiếu Cần Vương. Xây dựng căn cứ Tân Tỉnh kiên cố tại Hòn Kẽm Đá Dừng (Hiệp Đức) trên thượng nguồn sông Thu Bồn, chiến đấu quả cảm làm quân Pháp khiếp sợ.",
+                        "target_audience": "THCS (Lớp 6 - 9)",
+                        "derived_from_facts": [
+                                "FACT-HONKEM-01"
+                        ]
+                },
+                "verified_fact_ids": [
+                        "FACT-HONKEM-01"
+                ],
+                "key_milestones": [
+                        {
+                                "year_or_date": "1885",
+                                "event_title": "Phong trào Nghĩa Hội Quảng Nam bùng nổ hưởng ứng Chiếu Cần Vương",
+                                "fact_id": "FACT-HONKEM-01"
+                        },
+                        {
+                                "year_or_date": "1887",
+                                "event_title": "Nguyễn Duy Hiệu hi sinh anh dũng, phong trào Nghĩa Hội để lại tấm gương sáng ngời",
+                                "fact_id": "FACT-HONKEM-01"
+                        }
+                ],
+                "heritage_relics": [
+                        "Thắng cảnh Hòn Kẽm Đá Dừng",
+                        "Mộ chí Tướng quân Nguyễn Duy Hiệu"
+                ],
+                "prominent_figures": "Tướng quân Nguyễn Duy Hiệu (Hường Hiệu); Tiến sĩ Trần Văn Dư; Phan Bá Phiến",
+                "common_misconceptions": [
+                        {
+                                "misconception": "Nghĩ rằng phong trào Cần Vương chỉ diễn ra mạnh ở Thanh Hóa, Hà Tĩnh.",
+                                "correction": "Nghĩa Hội Quảng Nam là một trong những cuộc khởi nghĩa Cần Vương có tổ chức quy củ và căn cứ hiểm trở nhất miền Trung.",
+                                "factual_basis_fact_id": "FACT-HONKEM-01"
+                        }
+                ],
+                "verified_image": {
+                        "filename_or_url": "https://baodanang.vn/dataimages/202011/original/images1605812_hon_kem_da_dung.jpg",
+                        "caption": "Thắng cảnh Hòn Kẽm Đá Dừng trên sông Thu Bồn - Căn cứ Tân Tỉnh năm 1885",
+                        "historical_context": "Kháng chiến Cần Vương (1885-1887)",
+                        "image_source_credit": "Sở VHTT Đà Nẵng"
+                },
+                "status": "VERIFIED"
+        },
+        {
+                "station_id": 11,
+                "roman_numeral": "XI",
+                "official_title": "Nhượng Địa Tourane & Cách Mạng Tháng Tám 1945",
+                "short_title": "Tourane & CMT8 1945",
+                "era_span": "1888 – 1954",
+                "icon": "⭐️",
+                "primary_summary": {
+                        "text": "Ngày 26/08/1945, nhân dân Đà Nẵng đồng lòng khởi nghĩa giành chính quyền rực rỡ cờ đỏ sao vàng. Tiếp đó quân dân thành phố kiên cường chiến đấu suốt 9 năm kháng chiến chống Pháp thắng lợi!",
+                        "target_audience": "Tiểu học (Lớp 4 - 5)",
+                        "derived_from_facts": [
+                                "FACT-TOURANE-01"
+                        ]
+                },
+                "secondary_summary": {
+                        "text": "Năm 1888, thực dân Pháp ép triều đình biến Đà Nẵng thành thành phố nhượng địa Tourane. Ngày 26/08/1945, nhân dân đồng loạt nổi dậy khởi nghĩa giành chính quyền tại Tòa Đốc lý. Cuối năm 1946, hưởng ứng Lời kêu gọi Toàn quốc kháng chiến của Chủ tịch Hồ Chí Minh, quân dân Đà Nẵng giam chân quân Pháp suốt nhiều tuần lễ.",
+                        "target_audience": "THCS (Lớp 6 - 9)",
+                        "derived_from_facts": [
+                                "FACT-TOURANE-01"
+                        ]
+                },
+                "verified_fact_ids": [
+                        "FACT-TOURANE-01"
+                ],
+                "key_milestones": [
+                        {
+                                "year_or_date": "03/10/1888",
+                                "event_title": "Thực dân Pháp lập nhượng địa Tourane",
+                                "fact_id": "FACT-TOURANE-01"
+                        },
+                        {
+                                "year_or_date": "26/08/1945",
+                                "event_title": "Khởi nghĩa giành chính quyền thắng lợi rực rỡ tại Đà Nẵng",
+                                "fact_id": "FACT-TOURANE-01"
+                        }
+                ],
+                "heritage_relics": [
+                        "Tòa Đốc lý Tourane (nay là Bảo tàng Đà Nẵng cũ)",
+                        "Bảo tàng Điêu khắc Chăm (thành lập 1915-1919)"
+                ],
+                "prominent_figures": "Đồng chí Lê Văn Hiến; Các chiến sĩ cảm tử quân Đà Nẵng",
+                "common_misconceptions": [
+                        {
+                                "misconception": "Nghĩ rằng Đà Nẵng giành chính quyền cùng ngày 19/8 như Hà Nội.",
+                                "correction": "Đà Nẵng khởi nghĩa giành chính quyền thắng lợi vào ngày 26 tháng 8 năm 1945.",
+                                "factual_basis_fact_id": "FACT-TOURANE-01"
+                        }
+                ],
+                "verified_image": {
+                        "filename_or_url": "https://baodanang.vn/dataimages/202008/original/images1598412_khoi_nghia_26_8.jpg",
+                        "caption": "Mít tinh khởi nghĩa giành chính quyền ngày 26/8/1945 tại Tòa Đốc lý Đà Nẵng",
+                        "historical_context": "Cách mạng Tháng Tám 1945",
+                        "image_source_credit": "Bảo tàng Đà Nẵng"
+                },
+                "status": "VERIFIED"
+        },
+        {
+                "station_id": 12,
+                "roman_numeral": "XII",
+                "official_title": "Kháng Chiến Chống Mỹ & Đất Thép Thành Đồng",
+                "short_title": "Đất Thép Chống Mỹ",
+                "era_span": "1954 – 1975",
+                "icon": "✊",
+                "primary_summary": {
+                        "text": "Trong kháng chiến chống Mỹ, Mẹ Nhu hiền từ đã đào hầm bí mật nuôi giấu 7 dũng sĩ Thanh Khê. Anh dũng hy sinh của Mẹ đã tiếp thêm sức mạnh cho quân dân Đà Nẵng chiến đấu giải phóng quê hương!",
+                        "target_audience": "Tiểu học (Lớp 4 - 5)",
+                        "derived_from_facts": [
+                                "FACT-MENHU-01"
+                        ]
+                },
+                "secondary_summary": {
+                        "text": "Mỹ biến Đà Nẵng thành căn cứ quân sự liên hợp khổng lồ từ năm 1965. Quân dân Đà Nẵng lập nên 'Vành đai diệt Mỹ Hòa Vang' bất khuất. Tiêu biểu là tấm gương Mẹ Nhu (Lê Thị Dãnh) đào hầm nuôi giấu 7 dũng sĩ Thanh Khê (1968), anh hùng thiếu niên liệt sĩ Lê Độ, căn cứ lõm B1 Hồng Phước kiên cường.",
+                        "target_audience": "THCS (Lớp 6 - 9)",
+                        "derived_from_facts": [
+                                "FACT-MENHU-01"
+                        ]
+                },
+                "verified_fact_ids": [
+                        "FACT-MENHU-01"
+                ],
+                "key_milestones": [
+                        {
+                                "year_or_date": "08/03/1965",
+                                "event_title": "Lính thủy đánh bộ Mỹ đổ bộ bãi biển Đà Nẵng",
+                                "fact_id": "FACT-MENHU-01"
+                        },
+                        {
+                                "year_or_date": "26/12/1968",
+                                "event_title": "Trận đánh huyền thoại tại hầm Mẹ Nhu và 7 dũng sĩ Thanh Khê",
+                                "fact_id": "FACT-MENHU-01"
+                        }
+                ],
+                "heritage_relics": [
+                        "Tượng đài Mẹ Nhu (quận Thanh Khê)",
+                        "Căn cứ lõm cách mạng B1 Hồng Phước",
+                        "Địa đạo Kỳ Anh"
+                ],
+                "prominent_figures": "Mẹ Nhu (Lê Thị Dãnh); Liệt sĩ Anh hùng Lê Độ; 7 dũng sĩ Thanh Khê",
+                "common_misconceptions": [
+                        {
+                                "misconception": "Nghĩ rằng căn cứ du kích chỉ có ở rừng núi, trong lòng thành phố không có hầm bí mật.",
+                                "correction": "Ngay giữa lòng quận Thanh Khê và Liên Chiểu, Mẹ Nhu và nhân dân đã đào hàng trăm hầm bí mật nuôi giấu bộ đội.",
+                                "factual_basis_fact_id": "FACT-MENHU-01"
+                        }
+                ],
+                "verified_image": {
+                        "filename_or_url": "https://baodanang.vn/dataimages/202103/original/images1615812_me_nhu.jpg",
+                        "caption": "Tượng đài Mẹ Nhu và 7 dũng sĩ Thanh Khê tại đường Điện Biên Phủ, Đà Nẵng",
+                        "historical_context": "Kháng chiến chống Mỹ (1968)",
+                        "image_source_credit": "Bảo tàng Đà Nẵng"
+                },
+                "status": "VERIFIED"
+        },
+        {
+                "station_id": 13,
+                "roman_numeral": "XIII",
+                "official_title": "Đại Thắng 29/03/1975 & Tỉnh Quảng Nam - Đà Nẵng",
+                "short_title": "Giải Phóng 1975 & QN-ĐN",
+                "era_span": "1975 – 1996",
+                "icon": "🕊️",
+                "primary_summary": {
+                        "text": "Ngày 29/03/1975, lá cờ chiến thắng tung bay trên nóc Tòa Thị chính, thành phố Đà Nẵng hoàn toàn giải phóng. Nhân dân hai miền cùng chung sức xây dựng đại công trình hồ thủy nông Phú Ninh!",
+                        "target_audience": "Tiểu học (Lớp 4 - 5)",
+                        "derived_from_facts": [
+                                "FACT-BRIDGES-01"
+                        ]
+                },
+                "secondary_summary": {
+                        "text": "11 giờ 30 phút ngày 29/03/1975, Đà Nẵng hoàn toàn giải phóng. Giai đoạn tỉnh Quảng Nam - Đà Nẵng (1975-1996) ghi dấu ý chí quật cường khắc phục hậu quả chiến tranh, công trình thủy nông Hồ Phú Ninh, khôi phục sản xuất và từng bước bứt phá trong thời kỳ Đổi Mới (1986).",
+                        "target_audience": "THCS (Lớp 6 - 9)",
+                        "derived_from_facts": [
+                                "FACT-BRIDGES-01"
+                        ]
+                },
+                "verified_fact_ids": [
+                        "FACT-BRIDGES-01"
+                ],
+                "key_milestones": [
+                        {
+                                "year_or_date": "29/03/1975",
+                                "event_title": "Đà Nẵng hoàn toàn giải phóng mà hạ tầng hầu như còn nguyên vẹn",
+                                "fact_id": "FACT-BRIDGES-01"
+                        },
+                        {
+                                "year_or_date": "1977 - 1986",
+                                "event_title": "Đại công trường thủy nông Hồ Phú Ninh - biểu tượng lao động tái thiết",
+                                "fact_id": "FACT-BRIDGES-01"
+                        }
+                ],
+                "heritage_relics": [
+                        "Tòa Thị chính giải phóng 29/3",
+                        "Đại công trình Hồ Phú Ninh"
+                ],
+                "prominent_figures": "Các cánh quân giải phóng 29/3; Nhân dân lao động tỉnh QN-ĐN",
+                "common_misconceptions": [
+                        {
+                                "misconception": "Nghĩ rằng Đà Nẵng được giải phóng vào ngày 30/4/1975 cùng miền Nam.",
+                                "correction": "Đà Nẵng được giải phóng trước đó một tháng, đúng ngày 29 tháng 3 năm 1975.",
+                                "factual_basis_fact_id": "FACT-BRIDGES-01"
+                        }
+                ],
+                "verified_image": {
+                        "filename_or_url": "https://baodanang.vn/dataimages/202003/original/images1585412_giai_phong_29_3.jpg",
+                        "caption": "Xe tăng quân giải phóng tiến qua cầu Trịnh Minh Thế vào giải phóng Đà Nẵng 29/3/1975",
+                        "historical_context": "Đại thắng mùa xuân 1975",
+                        "image_source_credit": "Thông tấn xã Việt Nam / Bảo tàng Đà Nẵng"
+                },
+                "status": "VERIFIED"
+        },
+        {
+                "station_id": 14,
+                "roman_numeral": "XIV",
+                "official_title": "Thành Phố Trực Thuộc Trung Ương & Kỷ Tích Những Cây Cầu",
+                "short_title": "Trực Thuộc TƯ & Cầu Quay",
+                "era_span": "1997 – 2015",
+                "icon": "🌉",
+                "primary_summary": {
+                        "text": "Từ năm 1997, Đà Nẵng trở thành thành phố trực thuộc Trung ương. Thành phố đã xây dựng Cầu quay Sông Hàn đầu tiên tại Việt Nam, Cầu Rồng phun lửa phun nước và bãi biển Mỹ Khê xinh đẹp!",
+                        "target_audience": "Tiểu học (Lớp 4 - 5)",
+                        "derived_from_facts": [
+                                "FACT-BRIDGES-01"
+                        ]
+                },
+                "secondary_summary": {
+                        "text": "Ngày 01/01/1997, Đà Nẵng chính thức trở thành thành phố trực thuộc Trung ương. Cuộc chuyển mình lịch sử: xóa nhà chồ ven sông Hàn, mở rộng đô thị hướng biển, xây dựng hàng loạt cây cầu biểu tượng: Cầu quay Sông Hàn (2000), Cầu Thuận Phước (2009), Cầu Rồng (2013), Cầu Trần Thị Lý, bứt phá kinh tế du lịch.",
+                        "target_audience": "THCS (Lớp 6 - 9)",
+                        "derived_from_facts": [
+                                "FACT-BRIDGES-01"
+                        ]
+                },
+                "verified_fact_ids": [
+                        "FACT-BRIDGES-01"
+                ],
+                "key_milestones": [
+                        {
+                                "year_or_date": "01/01/1997",
+                                "event_title": "Đà Nẵng chính thức trở thành thành phố trực thuộc Trung ương",
+                                "fact_id": "FACT-BRIDGES-01"
+                        },
+                        {
+                                "year_or_date": "29/03/2000",
+                                "event_title": "Khánh thành Cầu quay Sông Hàn - cây cầu của lòng dân",
+                                "fact_id": "FACT-BRIDGES-01"
+                        },
+                        {
+                                "year_or_date": "29/03/2013",
+                                "event_title": "Khánh thành Cầu Rồng và Cầu Trần Thị Lý",
+                                "fact_id": "FACT-BRIDGES-01"
+                        }
+                ],
+                "heritage_relics": [
+                        "Cầu quay Sông Hàn",
+                        "Cầu Rồng",
+                        "Bãi biển Mỹ Khê",
+                        "Bà Nà Hills"
+                ],
+                "prominent_figures": "Nhân dân Đà Nẵng đồng thuận chung tay xây dựng thành phố",
+                "common_misconceptions": [
+                        {
+                                "misconception": "Nghĩ rằng Cầu quay Sông Hàn do nước ngoài viện trợ toàn bộ kinh phí.",
+                                "correction": "Cầu quay Sông Hàn do chính các kỹ sư Việt Nam thiết kế, thi công và có phần đóng góp rất lớn từ tiền tự nguyện của nhân dân thành phố.",
+                                "factual_basis_fact_id": "FACT-BRIDGES-01"
+                        }
+                ],
+                "verified_image": {
+                        "filename_or_url": "https://baodanang.vn/dataimages/202103/original/images1616812_cau_song_han.jpg",
+                        "caption": "Cầu quay Sông Hàn - biểu tượng bứt phá của thành phố Đà Nẵng",
+                        "historical_context": "Khánh thành năm 2000",
+                        "image_source_credit": "Cổng TTĐT TP Đà Nẵng"
+                },
+                "status": "VERIFIED"
+        },
+        {
+                "station_id": 15,
+                "roman_numeral": "XV",
+                "official_title": "Đô Thị Đáng Sống & Trung Tâm Đổi Mới Sáng Tạo",
+                "short_title": "Đô Thị Đáng Sống & APEC",
+                "era_span": "2016 – 2024",
+                "icon": "✨",
+                "primary_summary": {
+                        "text": "Đà Nẵng được bạn bè khắp nơi yêu mến gọi là 'Thành phố đáng sống' với Lễ hội Pháo hoa quốc tế rực rỡ, đường phố xanh sạch đẹp và con người mến khách, thân thiện!",
+                        "target_audience": "Tiểu học (Lớp 4 - 5)",
+                        "derived_from_facts": [
+                                "FACT-BRIDGES-01"
+                        ]
+                },
+                "secondary_summary": {
+                        "text": "Giai đoạn vươn tầm quốc tế với Năm APEC 2017 thành công rực rỡ; xây dựng thương hiệu đô thị biển đáng sống, điểm đến sự kiện và lễ hội hàng đầu châu Á. Chuyển dịch mạnh mẽ sang chuyển đổi số, kinh tế tri thức, công nghệ bán dẫn và phát triển bền vững.",
+                        "target_audience": "THCS (Lớp 6 - 9)",
+                        "derived_from_facts": [
+                                "FACT-BRIDGES-01"
+                        ]
+                },
+                "verified_fact_ids": [
+                        "FACT-BRIDGES-01"
+                ],
+                "key_milestones": [
+                        {
+                                "year_or_date": "Tháng 11/2017",
+                                "event_title": "Đà Nẵng đăng cai tổ chức Tuần lễ Cấp cao APEC 2017",
+                                "fact_id": "FACT-BRIDGES-01"
+                        }
+                ],
+                "heritage_relics": [
+                        "Công viên APEC",
+                        "Khu công nghệ cao Đà Nẵng"
+                ],
+                "prominent_figures": "Cộng đồng nhân dân và trí thức trẻ Đà Nẵng",
+                "common_misconceptions": [
+                        {
+                                "misconception": "Nghĩ rằng Đà Nẵng chỉ phát triển mỗi du lịch nghỉ dưỡng.",
+                                "correction": "Đà Nẵng đang vươn lên thành trung tâm công nghệ cao, công nghệ thông tin và vi mạch bán dẫn của cả nước.",
+                                "factual_basis_fact_id": "FACT-BRIDGES-01"
+                        }
+                ],
+                "verified_image": {
+                        "filename_or_url": "https://baodanang.vn/dataimages/202111/original/images1636812_apec_danang.jpg",
+                        "caption": "Công viên APEC bên bờ sông Hàn - dấu ấn hội nhập quốc tế",
+                        "historical_context": "Tuần lễ Cấp cao APEC 2017",
+                        "image_source_credit": "Cổng TTĐT TP Đà Nẵng"
+                },
+                "status": "VERIFIED"
+        },
+        {
+                "station_id": 16,
+                "roman_numeral": "XVI",
+                "official_title": "Đại Đô Thị Trực Thuộc Trung Ương & Kỷ Nguyên Vươn Mình",
+                "short_title": "Sáp Nhập 2025 & Đô Thị Mới",
+                "era_span": "01/07/2025 – Hiện tại",
+                "icon": "🌟",
+                "primary_summary": {
+                        "text": "Từ ngày 01/7/2025, Thành phố Đà Nẵng và tỉnh Quảng Nam tái sáp nhập thành một gia đình lớn với diện tích rộng hơn 11.800 km² và 94 xã phường. Chúng mình tự hào có cả Đền tháp Mỹ Sơn, Phố cổ Hội An và biển đảo Hoàng Sa thiêng liêng!",
+                        "target_audience": "Tiểu học (Lớp 4 - 5)",
+                        "derived_from_facts": [
+                                "FACT-MERGER-01",
+                                "FACT-MERGER-02",
+                                "FACT-CHAM-01",
+                                "FACT-HOANGSA-01"
+                        ]
+                },
+                "secondary_summary": {
+                        "text": "Theo Nghị quyết 1659/NQ-UBTVQH15 có hiệu lực từ ngày 01/7/2025, Thành phố Đà Nẵng tái sáp nhập với tỉnh Quảng Nam thành Thành phố Đà Nẵng trực thuộc Trung ương. Diện tích tự nhiên 11.859,62 km² (lớn nhất trong 6 thành phố trực thuộc TƯ), 94 đơn vị hành chính cấp xã (23 phường, 70 xã, 01 đặc khu Hoàng Sa). Hội tụ di sản thế giới kép Mỹ Sơn & Hội An, 12 Bảo vật quốc gia tại Bảo tàng Chăm, mở ra kỷ nguyên đại đô thị thông minh, sinh thái và kinh tế biển.",
+                        "target_audience": "THCS (Lớp 6 - 9)",
+                        "derived_from_facts": [
+                                "FACT-MERGER-01",
+                                "FACT-MERGER-02",
+                                "FACT-CHAM-01",
+                                "FACT-HOANGSA-01"
+                        ]
+                },
+                "verified_fact_ids": [
+                        "FACT-MERGER-01",
+                        "FACT-MERGER-02",
+                        "FACT-CHAM-01",
+                        "FACT-HOANGSA-01"
+                ],
+                "key_milestones": [
+                        {
+                                "year_or_date": "25/06/2025",
+                                "event_title": "UBTVQH thông qua Nghị quyết số 1659/NQ-UBTVQH15",
+                                "fact_id": "FACT-MERGER-01"
+                        },
+                        {
+                                "year_or_date": "01/07/2025",
+                                "event_title": "Chính thức vận hành bộ máy hành chính Thành phố Đà Nẵng mới",
+                                "fact_id": "FACT-MERGER-01"
+                        }
+                ],
+                "heritage_relics": [
+                        "Quần thể Mỹ Sơn",
+                        "Đô thị cổ Hội An",
+                        "Bảo tàng Điêu khắc Chăm (12 Bảo vật)",
+                        "Đặc khu Hoàng Sa"
+                ],
+                "prominent_figures": "Nhân dân Đại đô thị Đà Nẵng mới; Thế hệ học sinh hôm nay chung tay kiến tạo tương lai",
+                "common_misconceptions": [
+                        {
+                                "misconception": "Nghĩ rằng sau sáp nhập Đà Nẵng chỉ có 8 quận huyện như cũ.",
+                                "correction": "Sau ngày 01/7/2025, Đà Nẵng có 94 đơn vị hành chính cấp xã (23 phường, 70 xã, 01 đặc khu Hoàng Sa) với diện tích 11.859,62 km².",
+                                "factual_basis_fact_id": "FACT-MERGER-01"
+                        }
+                ],
+                "verified_image": {
+                        "filename_or_url": "https://baodanang.vn/dataimages/202507/original/images1688812_danang_moi.jpg",
+                        "caption": "Bản đồ không gian hành chính Đại đô thị Đà Nẵng sau mốc sáp nhập 01/7/2025",
+                        "historical_context": "Nghị quyết 1659/NQ-UBTVQH15",
+                        "image_source_credit": "Sở GD&ĐT Đà Nẵng & Sở Nội vụ"
+                },
+                "status": "VERIFIED"
+        }
+];
+
         const HISTORICAL_STAGES = [
             {
                 id: 1,
@@ -2251,7 +3145,6 @@
                     "Kinh tế trồng trọt kết hợp đánh cá, nghề thủ công và buôn bán ven biển miền Trung."
                 ],
                 figures: "Cư dân bản địa cổ Sa Huỳnh; Các di chỉ khảo cổ Sơn Trà, Khuê Bắc, An Bang.",
-                modernPlace: "Các di chỉ Sơn Trà, Vườn đình Khuê Bắc (Ngũ Hành Sơn) và vùng Sa Huỳnh hạ lưu Thu Bồn — ngày nay đều thuộc Thành phố Đà Nẵng (sau sáp nhập 01/7/2025).",
                 suggestedQuestion: "Bạn có thể giới thiệu cho mình về nền văn hóa Sa Huỳnh và các di chỉ tiền sử tại Đà Nẵng được không?"
             },
             {
@@ -2268,7 +3161,6 @@
                     "Di chỉ khảo cổ Chăm Phong Lệ (quận Cẩm Lệ) với hố thiêng nguyên vẹn xếp hạng Di tích TP năm 2021."
                 ],
                 figures: "Vua Bhadravarman I; Vua Indravarman II; Thần Shiva, Bồ tát Tara, thần Ganesha.",
-                modernPlace: "Thánh địa Mỹ Sơn (nay thuộc xã Thu Bồn) và kinh đô Trà Kiệu — trước thuộc tỉnh Quảng Nam, nay thuộc TP Đà Nẵng; Bảo tàng Điêu khắc Chăm nằm tại trung tâm Đà Nẵng.",
                 suggestedQuestion: "Khu đền tháp Mỹ Sơn và Bảo tàng Điêu khắc Chăm Đà Nẵng có những giá trị kiến trúc, nghệ thuật gì độc đáo vậy bạn?"
             },
             {
@@ -2285,7 +3177,6 @@
                     "Sự xuất hiện tên gọi 'Đà Nẵng' trong thư tịch cổ và các dòng di dân khai hoang lập ấp ven sông Hàn."
                 ],
                 figures: "Công chúa Huyền Trân; Vua Chế Mân; Vua Lê Thánh Tông.",
-                modernPlace: "Vùng Thuận Châu – Hóa Châu và Đạo Thừa Tuyên Quảng Nam xưa — phần lớn ngày nay thuộc Thành phố Đà Nẵng (hợp nhất Đà Nẵng và Quảng Nam từ 01/7/2025).",
                 suggestedQuestion: "Ý nghĩa của việc thành lập Đạo Thừa Tuyên Quảng Nam năm 1471 và nguồn gốc tên gọi 'Đà Nẵng' là gì vậy bạn?"
             },
             {
@@ -2302,7 +3193,6 @@
                     "Cửa Hàn (Đà Nẵng) giữ vai trò tiền cảng chiến lược bảo vệ an ninh hàng hải."
                 ],
                 figures: "Chúa Tiên Nguyễn Hoàng; Chúa Sãi Nguyễn Phúc Nguyên; Thế tử Nguyễn Phúc Kỳ.",
-                modernPlace: "Dinh trấn Thanh Chiêm (vùng Điện Bàn) và Đô thị cổ Hội An (Faifo) — trước thuộc tỉnh Quảng Nam, ngày nay cùng thuộc Thành phố Đà Nẵng.",
                 suggestedQuestion: "Dinh trấn Thanh Chiêm và tiền cảng Cửa Hàn giữ vai trò như thế nào trong sự phồn vinh của Đàng Trong thời chúa Nguyễn?"
             },
             {
@@ -2319,7 +3209,6 @@
                     "Làng mộc Kim Bồng đóng tàu viễn dương, Gốm Thanh Hà, Nước mắm Nam Ô trứ danh."
                 ],
                 figures: "Giáo sĩ Francisco de Pina; Alexandre de Rhodes; Các nghệ nhân tổ nghề làng Phước Kiều, Kim Bồng.",
-                modernPlace: "Thanh Chiêm — chiếc nôi chữ Quốc ngữ, cùng các làng nghề Phước Kiều, Kim Bồng, Thanh Hà — trước thuộc Quảng Nam, nay đều thuộc TP Đà Nẵng.",
                 suggestedQuestion: "Tại sao nói xứ Quảng là cái nôi ra đời chữ Quốc ngữ và làng đúc đồng Phước Kiều có lịch sử đặc biệt thế nào bạn ơi?"
             },
             {
@@ -2336,7 +3225,6 @@
                     "Súng thần công và các hiện vật thời Tây Sơn lưu giữ tại Bảo tàng Đà Nẵng."
                 ],
                 figures: "Hoàng đế Quang Trung (Nguyễn Huệ); Thái đức Hoàng đế Nguyễn Nhạc; Nữ tướng Bùi Thị Xuân.",
-                modernPlace: "Các địa bàn hoạt động của phong trào Tây Sơn trên đất Quảng Nam xưa — ngày nay thuộc Thành phố Đà Nẵng.",
                 suggestedQuestion: "Vai trò chiến lược của Đà Nẵng và xứ Quảng trong phong trào khởi nghĩa Tây Sơn như thế nào vậy bạn?"
             },
             {
@@ -2353,7 +3241,6 @@
                     "Danh tướng Thoại Ngọc Hầu lập đội quân An Hải bảo vệ bờ cõi và hỗ trợ phát triển quê hương."
                 ],
                 figures: "Vua Gia Long; Vua Minh Mạng; Danh tướng Thoại Ngọc Hầu (Nguyễn Văn Thoại).",
-                modernPlace: "Thành Điện Hải ngày nay nằm tại trung tâm Đà Nẵng (khu vực Hải Châu), bên cạnh Trung tâm hành chính thành phố — Di tích Quốc gia đặc biệt.",
                 suggestedQuestion: "Thành Điện Hải và Hải Vân Quan được xây dựng thời nhà Nguyễn với vai trò chiến lược phòng thủ ra sao bạn?"
             },
             {
@@ -2370,7 +3257,6 @@
                     "Nghĩa trủng Hòa Vang, Nghĩa trủng Phước Ninh đời đời tưởng nhớ các anh hùng nghĩa sĩ hy sinh vì Tổ quốc."
                 ],
                 figures: "Danh tướng Nguyễn Tri Phương; Tướng quân Lê Đình Lý; Các nghĩa sĩ Nghĩa trủng Hòa Vang.",
-                modernPlace: "Bán đảo Sơn Trà, Thành Điện Hải và Nghĩa trủng Hòa Vang, Phước Ninh — ngày nay đều thuộc Thành phố Đà Nẵng.",
                 suggestedQuestion: "Bạn có thể kể cho mình nghe về cuộc kháng chiến chống liên quân Pháp - Tây Ban Nha tại Đà Nẵng năm 1858 được không?"
             },
             {
@@ -2387,7 +3273,6 @@
                     "Khí tiết bất khuất của danh nhân Nguyễn Duy Hiệu: 'Thà chết vinh còn hơn sống nhục'."
                 ],
                 figures: "Tiến sĩ Trần Văn Dư; Danh nhân Nguyễn Duy Hiệu (Hường Hiệu); Đỗ Đăng Tuyển.",
-                modernPlace: "Căn cứ Tân Tỉnh – Trung Lộc và thắng cảnh Hòn Kẽm Đá Dừng (Quảng Nam cũ) — ngày nay thuộc vùng phía tây Thành phố Đà Nẵng.",
                 suggestedQuestion: "Phong trào Nghĩa Hội Quảng Nam và căn cứ Hòn Kẽm Đá Dừng của Nguyễn Duy Hiệu có ý nghĩa lịch sử như thế nào bạn ơi?"
             },
             {
@@ -2405,7 +3290,6 @@
                     "Khánh thành Bảo tàng Nghệ thuật Điêu khắc Chăm (1915 - 1919)."
                 ],
                 figures: "Chí sĩ Phan Châu Trinh; Huỳnh Thúc Kháng; Thái Phiên; Trần Cao Vân; Henri Parmentier.",
-                modernPlace: "Tourane là tên người Pháp gọi Đà Nẵng; Faifo là Hội An — trước đây là hai đơn vị tách biệt (TP nhượng địa và tỉnh Quảng Nam), nay cùng thuộc TP Đà Nẵng.",
                 suggestedQuestion: "Phong trào Duy Tân của cụ Phan Châu Trinh và cuộc khởi nghĩa năm 1916 tại Đà Nẵng đã diễn ra như thế nào vậy bạn?"
             },
             {
@@ -2422,7 +3306,6 @@
                     "Căn cứ kháng chiến vững chắc chi viện cho chiến trường miền Trung suốt 9 năm."
                 ],
                 figures: "Đồng chí Lê Văn Hiến; Các chiến sĩ cảm tử quân Đà Nẵng.",
-                modernPlace: "Các địa danh kháng chiến giai đoạn 1945–1954 ở Đà Nẵng và Quảng Nam — ngày nay cùng thuộc Thành phố Đà Nẵng.",
                 suggestedQuestion: "Không khí Cách mạng Tháng Tám 1945 và 9 năm kháng chiến chống Pháp của quân dân Đà Nẵng diễn ra thế nào bạn?"
             },
             {
@@ -2440,7 +3323,6 @@
                     "Căn cứ lõm B1 Hồng Phước (Liên Chiểu) — pháo đài bí mật giữa lòng thành phố."
                 ],
                 figures: "Mẹ Nhu (Lê Thị Dãnh); Anh hùng Lê Độ; 7 dũng sĩ Thanh Khê; Dũng sĩ diệt Mỹ Hòa Vang.",
-                modernPlace: "Thanh Khê (quê hương Mẹ Nhu và 7 dũng sĩ), vùng cát Điện Ngọc, Núi Thành — ngày nay đều thuộc Thành phố Đà Nẵng.",
                 suggestedQuestion: "Bạn có thể kể cho mình nghe câu chuyện cảm động về Mẹ Nhu và 7 dũng sĩ Thanh Khê năm 1968 không?"
             },
             {
@@ -2457,7 +3339,6 @@
                     "Bước ngoặt Đổi mới (1986) tạo tiền đề cho sự phát triển công nghiệp và kinh tế biển."
                 ],
                 figures: "Các cánh quân giải phóng tiến vào Đà Nẵng 29/3/1975; Nhân dân lao động tỉnh QN-ĐN.",
-                modernPlace: "Tỉnh Quảng Nam – Đà Nẵng (1975–1996) — chính là tiền thân của Thành phố Đà Nẵng hợp nhất ngày nay.",
                 suggestedQuestion: "Ý nghĩa to lớn của ngày Giải phóng Đà Nẵng 29/3/1975 và những nỗ lực tái thiết thời tỉnh Quảng Nam - Đà Nẵng là gì bạn ơi?"
             },
             {
@@ -2475,7 +3356,6 @@
                     "Lễ hội pháo hoa quốc tế DIFF và thương hiệu du lịch hàng đầu."
                 ],
                 figures: "Lãnh đạo và các tầng lớp nhân dân đồng lòng vì sự nghiệp đổi mới của Đà Nẵng.",
-                modernPlace: "Đà Nẵng trực thuộc Trung ương (tách năm 1997) với cầu Sông Hàn, cầu Rồng — ngày nay là vùng lõi đô thị của TP Đà Nẵng mới.",
                 suggestedQuestion: "Tại sao Đà Nẵng được mệnh danh là 'Thành phố của những cây cầu' và mốc năm 1997 có ý nghĩa gì bạn nhỉ?"
             },
             {
@@ -2493,7 +3373,6 @@
                     "Tiên phong phát triển thành phố thông minh, công nghệ vi mạch bán dẫn và bảo vệ sinh thái Sơn Trà."
                 ],
                 figures: "Cộng đồng trí thức, nhà bảo tồn di sản, thế hệ trẻ sáng tạo Đà Nẵng.",
-                modernPlace: "Bà Nà, Ngũ Hành Sơn, Mỹ Sơn, Hội An — toàn bộ không gian di sản này ngày nay thuộc Thành phố Đà Nẵng.",
                 suggestedQuestion: "Ma Nhai Ngũ Hành Sơn và Thành Điện Hải đã được vinh danh di sản quốc gia và quốc tế như thế nào vậy bạn?"
             },
             {
@@ -2511,7 +3390,6 @@
                     "Hội tụ di sản văn hóa đỉnh cao: Quần thể Mỹ Sơn (xã Thu Bồn), Đô thị cổ Hội An, Sông Hàn, Sông Thu Bồn, Vườn quốc gia Sông Thanh, Bán đảo Sơn Trà, Cù Lao Chàm."
                 ],
                 figures: "Nhân dân đại đô thị Đà Nẵng mới; Thế hệ học sinh hôm nay chung tay dựng xây tương lai.",
-                modernPlace: "Thành phố Đà Nẵng mới (từ 01/7/2025): 94 đơn vị hành chính cấp xã — 23 phường, 70 xã và đặc khu Hoàng Sa; diện tích 11.859,62 km².",
                 suggestedQuestion: "Sau mốc sáp nhập 01/07/2025, Thành phố Đà Nẵng có những thay đổi lớn nào về địa lý, hành chính và di sản văn hóa bạn ơi?"
             }
         ];
@@ -2840,17 +3718,10 @@
         // ==============================================================
         let lastUserQuestion = "";
 
-        // === AI runtime: Claude tích hợp (sample capability) — KHÔNG dùng API key ===
-        const AI_MODEL_LABEL = 'claude (built-in sample)';
-        let _samplePromise = null;
-        function getSample() {
-            if (!_samplePromise) {
-                _samplePromise = (window.claude && window.claude.use)
-                    ? window.claude.use('sample')
-                    : Promise.resolve(null);
-            }
-            return _samplePromise;
-        }
+        // Bảo mật: Không lưu API Key ở frontend trình duyệt.
+        // Yêu cầu chuyển qua backend proxy endpoint /api/chat hoặc chạy serverless.
+        const BACKEND_CHAT_ENDPOINT = '/api/chat';
+        const PRIMARY_MODEL         = 'gpt-4o-mini';
 
         const SYSTEM_PROMPT_TEMPLATE = `Bạn là "Sử Gia Nhí AI", một trợ lý học tập lịch sử và văn hóa thông minh, gần gũi, dành cho học sinh phổ thông học môn Giáo dục Địa phương Thành phố Đà Nẵng, Việt Nam.
 
@@ -2865,10 +3736,7 @@ NGUYÊN TẮC CỐT LÕI CỦA SỬ GIA NHÍ AI V2:
      "Chào bạn! Kho tư liệu kiểm chứng hiện tại của mình chưa có đủ thông tin chi tiết về sự kiện/nhân vật này. Để có nguồn kiến thức chuẩn xác nhất, bạn hãy đón đọc thêm tại Thư viện Bảo tàng Đà Nẵng hoặc Bảo tàng Điêu khắc Chăm nhé!"
 4. NGUYÊN TẮC BẢO VỆ CHẶN CÂU HỎI NGOÀI LUỒNG (GUARDRAIL):
    - Bạn TUYỆT ĐỐI KHÔNG trả lời các câu hỏi không liên quan đến Đà Nẵng / Xứ Quảng (ví dụ: giải toán, viết code, tin showbiz, bóng đá quốc tế...). Bạn từ chối lịch sự:
-     "Bạn ơi, Sử Gia Nhí AI chỉ chuyên về lịch sử, văn hóa và giáo dục địa phương Đà Nẵng - Xứ Quảng thôi nè! Mình cùng trò chuyện về 16 giai đoạn hình thành của thành phố, Thành Điện Hải, Thánh địa Mỹ Sơn hay Đà Nẵng sau sáp nhập 2025 nhé! Bạn muốn tìm hiểu gì về Đà Nẵng nào?"
-5. NGUYÊN TẮC ĐỊA DANH CŨ – MỚI (SAU SÁP NHẬP 01/7/2025 THEO NGHỊ QUYẾT 1659/NQ-UBTVQH15):
-   - Khi nhắc tới bất kỳ địa danh nào đã đổi tên hoặc thay đổi đơn vị hành chính, bạn LUÔN LUÔN nêu rõ cả tên/trực thuộc CŨ và MỚI. Ví dụ: \"Hội An — trước đây thuộc tỉnh Quảng Nam, ngày nay thuộc Thành phố Đà Nẵng\"; \"Tourane là tên người Pháp gọi Đà Nẵng xưa\".
-   - Khi câu trả lời xoay quanh một địa danh/di tích cụ thể, hãy kết thúc phần nội dung (ngay trước dòng Nguồn tham khảo) bằng dòng: 📍 **Ngày nay nơi này thuộc:** [đơn vị hành chính hiện tại của TP Đà Nẵng].`;
+     "Bạn ơi, Sử Gia Nhí AI chỉ chuyên về lịch sử, văn hóa và giáo dục địa phương Đà Nẵng - Xứ Quảng thôi nè! Mình cùng trò chuyện về 16 giai đoạn hình thành của thành phố, Thành Điện Hải, Thánh địa Mỹ Sơn hay Đà Nẵng sau sáp nhập 2025 nhé! Bạn muốn tìm hiểu gì về Đà Nẵng nào?"`;
 
         let chatHistory = [];
         let isAiThinking = false;
@@ -2984,95 +3852,59 @@ NGUYÊN TẮC CỐT LÕI CỦA SỬ GIA NHÍ AI V2:
             updateAudioIndicator(false);
         }
 
-        // ===== TTS ENGINE V3 — MỘT giọng Việt duy nhất, đọc chuẩn chữ viết tắt =====
-        let sgnVoice = null;
-        const ROMAN_VI = {I:'một',II:'hai',III:'ba',IV:'bốn',V:'năm',VI:'sáu',VII:'bảy',VIII:'tám',IX:'chín',X:'mười',XI:'mười một',XII:'mười hai',XIII:'mười ba',XIV:'mười bốn',XV:'mười lăm',XVI:'mười sáu'};
-
-        function listViVoices() {
-            const vs = ('speechSynthesis' in window) ? window.speechSynthesis.getVoices() : [];
-            return vs.filter(v => (v.lang || '').toLowerCase().startsWith('vi'));
-        }
-        function pickBestViVoice() {
-            const vi = listViVoices();
-            if (!vi.length) return null;
-            let saved = null; try { saved = localStorage.getItem('sgn_voice'); } catch(e) {}
-            if (saved) { const f = vi.find(v => v.name === saved); if (f) return f; }
-            const pri = [/natural/i, /hoai\s?my|nam\s?minh|online/i, /google/i];
-            for (const p of pri) { const f = vi.find(v => p.test(v.name)); if (f) return f; }
-            return vi[0];
-        }
-        function populateVoicePicker() {
-            const sel = document.getElementById('voicePicker');
-            sgnVoice = pickBestViVoice();
-            if (!sel) return;
-            const vi = listViVoices();
-            if (!vi.length) { sel.style.display = 'none'; return; }
-            sel.style.display = '';
-            sel.innerHTML = vi.map(v =>
-                `<option value="${escapeHtml(v.name)}" ${sgnVoice && v.name === sgnVoice.name ? 'selected' : ''}>🗣 ${escapeHtml(v.name.replace(/Microsoft |Google /g, ''))}</option>`
-            ).join('');
-        }
-        if ('speechSynthesis' in window) {
-            window.speechSynthesis.onvoiceschanged = populateVoicePicker;
-        }
-        function onVoicePicked(name) {
-            const f = listViVoices().find(v => v.name === name);
-            if (!f) return;
-            sgnVoice = f;
-            try { localStorage.setItem('sgn_voice', name); } catch(e) {}
-            speakText('Xin chào! Mình là Sử Gia Nhí, rất vui được đồng hành cùng bạn khám phá lịch sử Đà Nẵng.');
-        }
-
-        // Chuẩn hóa chữ viết trước khi đọc: TK -> thế kỷ, số La Mã, ngày tháng, viết tắt
-        function normalizeForSpeech(t) {
-            let x = ' ' + String(t) + ' ';
-            x = x.replace(/\*\*|__|[#*•_`~>|]/g, ' ');
-            x = x.replace(/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}\u{200D}\u{2B00}-\u{2BFF}]/gu, ' ');
-            x = x.replace(/(\d{1,2})\/(\d{1,2})\/(\d{4})/g, 'ngày $1 tháng $2 năm $3');
-            x = x.replace(/(\d{3,4})\s*[–\-]\s*(\d{3,4})/g, '$1 đến $2');
-            x = x.replace(/\s[–—]\s/g, ' đến ');
-            x = x.replace(/\bTK\.?\s*/g, 'thế kỷ ');
-            x = x.replace(/\bCMT8\b/g, 'Cách mạng tháng Tám');
-            x = x.replace(/\bQN\s*[-–]\s*ĐN\b/g, 'Quảng Nam Đà Nẵng');
-            x = x.replace(/\bTƯ\b/g, 'Trung ương');
-            x = x.replace(/\bTP\.?\s+/g, 'thành phố ');
-            x = x.replace(/\bGDĐP\b/g, 'Giáo dục địa phương');
-            x = x.replace(/\btrước CN\b/gi, 'trước Công nguyên');
-            x = x.replace(/km²|km2/g, 'ki lô mét vuông');
-            const RN = '(XVI|XV|XIV|XIII|XII|XI|X|IX|VIII|VII|VI|V|IV|III|II|I)';
-            x = x.replace(new RegExp('\\b([Tt]hế kỷ|[Gg]iai đoạn)\\s+' + RN + '\\b', 'g'),
-                (m, w, r) => w + ' ' + (ROMAN_VI[r] || r));
-            x = x.replace(new RegExp('\\b' + RN + '\\s*/\\s*XVI\\b', 'g'),
-                (m, r) => (ROMAN_VI[r] || r) + ' trên mười sáu');
-            x = x.replace(/(\d)\.(\d{3})/g, '$1 $2');
-            x = x.replace(/(\d),(\d)/g, '$1 phẩy $2');
-            return x.replace(/\s+/g, ' ').trim();
+        
+        function normalizeSpeechAbbreviations(text) {
+            return text
+                .replace(/\bNQ\s*1659\/NQ-UBTVQH15\b/gi, 'Nghị quyết 1659 của Ủy ban Thường vụ Quốc hội 15')
+                .replace(/\bNQ\s*1659\b/gi, 'Nghị quyết 1659')
+                .replace(/\bUBTVQH15\b/gi, 'Ủy ban Thường vụ Quốc hội khóa 15')
+                .replace(/\bTK\s*([IVXLCDM]+)-([IVXLCDM]+)\b/gi, 'Thế kỷ $1 đến $2')
+                .replace(/\bTK\s*([IVXLCDM]+)\b/gi, 'Thế kỷ $1')
+                .replace(/\bTP\b/g, 'Thành phố')
+                .replace(/\bTƯ\b/g, 'Trung ương')
+                .replace(/\bTCN\b/g, 'Trước Công nguyên')
+                .replace(/\bDIFF\b/g, 'Lễ hội pháo hoa quốc tế Đà Nẵng')
+                .replace(/\bUNESCO\b/g, 'U nét xcô')
+                .replace(/\bKKT\b/g, 'Khu kinh tế')
+                .replace(/\bGDĐP\b/g, 'Giáo dục địa phương')
+                .replace(/\bQGĐB\b/g, 'Quốc gia đặc biệt')
+                .replace(/\bUBND\b/g, 'Ủy ban nhân dân')
+                .replace(/\bkm²\b/g, 'ki lô mét vuông')
+                .replace(/\bkm\b/g, 'ki lô mét')
+                .replace(/\b(\d+)\/(\d+)\/(\d{4})\b/g, 'ngày $1 tháng $2 năm $3');
         }
 
         function speakText(rawText) {
+            rawText = normalizeSpeechAbbreviations(rawText);
             if (!soundEnabled) {
                 alert('Âm thanh đang ở chế độ Tắt. Bạn hãy bấm nút "Âm thanh: Bật" để nghe nhé!');
                 return;
             }
             stopSpeaking();
-            if (!('speechSynthesis' in window)) {
-                alert('Trình duyệt này không hỗ trợ đọc thành tiếng. Bạn thử Chrome hoặc Edge nhé!');
-                return;
-            }
-            const clean = normalizeForSpeech(rawText);
-            if (!clean) return;
-            if (!sgnVoice) sgnVoice = pickBestViVoice();
 
-            const sentences = clean.match(/[^.!?;]+[.!?;]?/g) || [clean];
+            let clean = rawText
+                .replace(/[#*•_`~>\-\d+\.]/g, ' ')
+                .replace(/[\u{1F300}-\u{1F9FF}]/gu, '')
+                .replace(/\s+/g, ' ')
+                .trim();
+
+            if (!clean) return;
+
+            const sentences = clean.match(/[^.!?，,;]+[.!?，,;]?/g) || [clean];
             speechQueue = [];
-            let cur = '';
-            for (let st of sentences) {
-                st = st.trim();
-                if (!st) continue;
-                if ((cur + ' ' + st).length <= 200) cur += (cur ? ' ' : '') + st;
-                else { if (cur) speechQueue.push(cur); cur = st; }
+            let currentChunk = '';
+
+            for (let s of sentences) {
+                s = s.trim();
+                if (!s) continue;
+                if ((currentChunk + ' ' + s).length <= 140) {
+                    currentChunk += (currentChunk ? ' ' : '') + s;
+                } else {
+                    if (currentChunk) speechQueue.push(currentChunk);
+                    currentChunk = s;
+                }
             }
-            if (cur) speechQueue.push(cur);
+            if (currentChunk) speechQueue.push(currentChunk);
 
             isSpeakingActive = true;
             updateAudioIndicator(true, clean.slice(0, 45) + '...');
@@ -3086,41 +3918,56 @@ NGUYÊN TẮC CỐT LÕI CỦA SỬ GIA NHÍ AI V2:
                 updateAudioIndicator(false);
                 return;
             }
+
             const chunk = speechQueue.shift();
-            const u = new SpeechSynthesisUtterance(chunk);
-            u.lang = (sgnVoice && sgnVoice.lang) || 'vi-VN';
-            if (sgnVoice) u.voice = sgnVoice;   // KHÓA một giọng duy nhất cho mọi đoạn
-            u.rate = 0.98;
-            u.pitch = 1.02;
-            u.onend = () => playNextSpeechChunk();
-            u.onerror = () => playNextSpeechChunk();
-            window.speechSynthesis.speak(u);
+            const encoded = encodeURIComponent(chunk);
+            const googleTtsUrl = `https://translate.google.com/translate_tts?ie=UTF-8&tl=vi&client=tw-ob&q=${encoded}`;
+
+            const audio = new Audio();
+            currentAudioPlayer = audio;
+            audio.src = googleTtsUrl;
+
+            let hasFinished = false;
+            const proceed = () => {
+                if (hasFinished) return;
+                hasFinished = true;
+                playNextSpeechChunk();
+            };
+
+            audio.onended = proceed;
+            audio.onerror = () => {
+                fallbackWebSpeech(chunk, proceed);
+            };
+
+            const promise = audio.play();
+            if (promise !== undefined) {
+                promise.catch(() => {
+                    fallbackWebSpeech(chunk, proceed);
+                });
+            }
         }
 
-        // ===== Tư liệu gốc theo từng giai đoạn =====
-        const STAGE_KB_REFS = {
-            1:  ["SRC-GDDP6-CD1"],
-            2:  ["SRC-GDDP4-CD3", "SRC-GDDP6-CD5"],
-            3:  ["SRC-GDDP6-CD1"],
-            4:  ["SRC-GDDP6-CD3", "SRC-GDDP4-CD4"],
-            5:  ["SRC-GDDP4-CD5"],
-            6:  ["SRC-BTDN-01"],
-            7:  ["SRC-BTDN-01"],
-            8:  ["SRC-BTDN-01", "SRC-BTDN-02"],
-            9:  ["SRC-BTDN-02"],
-            10: ["SRC-BTDN-02"],
-            11: ["SRC-BTDN-02"],
-            12: ["SRC-BTDN-03"],
-            13: ["SRC-BTDN-03"],
-            14: ["SRC-BTDN-04"],
-            15: ["SRC-BTDN-04", "SRC-GDDP6-CD3"],
-            16: ["SRC-GDDP6-CD2", "SRC-GDDP6-CD3"]
-        };
-        function openStageSources() {
-            const stage = HISTORICAL_STAGES[currentStageIndex];
-            const ids = STAGE_KB_REFS[stage.id] || [];
-            if (ids.length) openSourceModal(ids);
-            else alert('Giai đoạn này chưa gắn tư liệu gốc trong kho kiểm chứng.');
+        function fallbackWebSpeech(textChunk, callback) {
+            if (!('speechSynthesis' in window)) {
+                if (callback) callback();
+                return;
+            }
+            window.speechSynthesis.cancel();
+            const utterance = new SpeechSynthesisUtterance(textChunk);
+
+            const voices = window.speechSynthesis.getVoices();
+            const viVoice = voices.find(v => v.lang.startsWith('vi') || v.name.toLowerCase().includes('vietnam') || v.name.toLowerCase().includes('hoaimy'));
+            if (viVoice) {
+                utterance.voice = viVoice;
+                utterance.lang = viVoice.lang;
+            } else {
+                utterance.rate = 0.95;
+            }
+
+            utterance.onend = () => { if (callback) callback(); };
+            utterance.onerror = () => { if (callback) callback(); };
+
+            window.speechSynthesis.speak(utterance);
         }
 
         function testOrToggleVoice() {
@@ -3211,6 +4058,22 @@ NGUYÊN TẮC CỐT LÕI CỦA SỬ GIA NHÍ AI V2:
             selectStage(currentStageIndex + direction);
         }
 
+        
+        let currentGradeLevel = 'primary';
+
+        function switchGradeLevel(level) {
+            currentGradeLevel = level;
+            document.querySelectorAll('.grade-pill').forEach(b => b.classList.remove('active'));
+            if (level === 'primary') {
+                const btn = document.getElementById('pillPrimary');
+                if (btn) btn.classList.add('active');
+            } else {
+                const btn = document.getElementById('pillSecondary');
+                if (btn) btn.classList.add('active');
+            }
+            updateDossier(currentStageIndex);
+        }
+
         function updateDossier(idx) {
             const data = HISTORICAL_STAGES[idx];
             if (!data) return;
@@ -3222,7 +4085,31 @@ NGUYÊN TẮC CỐT LÕI CỦA SỬ GIA NHÍ AI V2:
             document.getElementById('dossierBadge').textContent = `Giai đoạn ${data.roman} / XVI`;
             document.getElementById('dossierEra').textContent = data.era;
             document.getElementById('dossierTitle').innerHTML = `${data.icon} ${data.name}`;
-            document.getElementById('dossierDesc').textContent = data.desc;
+            
+            const masterStation = (typeof MASTER_CONTENT_16_TRAM !== 'undefined') ? MASTER_CONTENT_16_TRAM[idx] : null;
+            if (masterStation) {
+                if (currentGradeLevel === 'primary' && masterStation.primary_summary) {
+                    document.getElementById('dossierDesc').textContent = masterStation.primary_summary.text;
+                } else if (masterStation.secondary_summary) {
+                    document.getElementById('dossierDesc').textContent = masterStation.secondary_summary.text;
+                } else {
+                    document.getElementById('dossierDesc').textContent = data.desc;
+                }
+
+                // Render Verified Image
+                const imgContainer = document.getElementById('dossierImageContainer');
+                const imgEl = document.getElementById('dossierImg');
+                const captionEl = document.getElementById('dossierImgCaption');
+                if (imgContainer && imgEl && masterStation.verified_image) {
+                    imgEl.src = masterStation.verified_image.filename_or_url;
+                    imgEl.style.display = 'block';
+                    if (captionEl) captionEl.textContent = `📷 ${masterStation.verified_image.caption} (Nguồn: ${masterStation.verified_image.image_source_credit})`;
+                    imgContainer.style.display = 'block';
+                }
+            } else {
+                document.getElementById('dossierDesc').textContent = data.desc;
+            }
+
 
             const listEl = document.getElementById('dossierHighlights');
             listEl.innerHTML = '';
@@ -3233,7 +4120,6 @@ NGUYÊN TẮC CỐT LÕI CỦA SỬ GIA NHÍ AI V2:
             });
 
             document.getElementById('dossierFigures').textContent = data.figures;
-            document.getElementById('dossierModern').textContent = data.modernPlace || 'Ngày nay thuộc Thành phố Đà Nẵng.';
         }
 
         function triggerHubInfo() {
@@ -3460,6 +4346,22 @@ NGUYÊN TẮC CỐT LÕI CỦA SỬ GIA NHÍ AI V2:
 
             if (!userText || isAiThinking) return;
 
+            // Giới hạn độ dài câu hỏi
+            if (userText.length > 300) {
+                alert("Câu hỏi của bạn dài quá (tối đa 300 ký tự). Bạn hãy rút gọn câu hỏi lại nhé!");
+                return;
+            }
+
+            // Chống spam / Rate limiting (Tối đa 10 câu/phút)
+            const nowTime = Date.now();
+            window.recentUserMsgs = (window.recentUserMsgs || []).filter(t => nowTime - t < 60000);
+            if (window.recentUserMsgs.length >= 10) {
+                alert("Bạn gửi câu hỏi nhanh quá nè! Hãy nghỉ một chút rồi hỏi tiếp nhé!");
+                return;
+            }
+            window.recentUserMsgs.push(nowTime);
+
+
             lastUserQuestion = userText;
             isAiThinking = true;
             sendBtn.disabled = true;
@@ -3474,21 +4376,6 @@ NGUYÊN TẮC CỐT LÕI CỦA SỬ GIA NHÍ AI V2:
             appendMessage('user', userText);
 
             // 2. Client-side Retrieval & Classification
-            // Chống quá tải: giãn tối thiểu 4 giây giữa hai câu, tối đa 60 câu mỗi phiên
-            const _now = Date.now();
-            if (_now - (window._sgnLastAsk || 0) < 4000) {
-                appendMessage('bot', '⏳ Bạn ơi, mình cần vài giây tra cứu kỹ từng câu. Bạn đợi một chút rồi gửi câu tiếp theo nhé!');
-                isAiThinking = false; sendBtn.disabled = false;
-                return;
-            }
-            if ((window._sgnCount || 0) >= 60) {
-                appendMessage('bot', '📚 Hôm nay chúng mình đã cùng nhau trò chuyện tới 60 câu rồi đó! Bạn nghỉ giải lao một chút, ôn lại những điều đã học và quay lại ở phiên sau nhé!');
-                isAiThinking = false; sendBtn.disabled = false;
-                return;
-            }
-            window._sgnLastAsk = _now;
-            window._sgnCount = (window._sgnCount || 0) + 1;
-
             const retrievalResult = classifyAndRetrieve(userText);
             const { classification, retrievedChunks, sourcesUsed } = retrievalResult;
 
@@ -3558,7 +4445,7 @@ NGUYÊN TẮC CỐT LÕI CỦA SỬ GIA NHÍ AI V2:
             ];
 
             try {
-                const reply = await callClaude(messagesPayload);
+                const reply = await callOpenAi(PRIMARY_MODEL, messagesPayload);
                 hideTyping();
                 appendMessage('bot', reply, retrievedChunks);
                 chatHistory.push({ role: 'user', content: userText });
@@ -3571,7 +4458,7 @@ NGUYÊN TẮC CỐT LÕI CỦA SỬ GIA NHÍ AI V2:
                     classification: classification,
                     retrieved_docs: retrievedChunks.map(c => c.id),
                     sources_used: sourcesUsed,
-                    model: AI_MODEL_LABEL,
+                    model: PRIMARY_MODEL,
                     latency_ms: Date.now() - startTime,
                     result_status: "SUCCESS"
                 });
@@ -3616,26 +4503,29 @@ NGUYÊN TẮC CỐT LÕI CỦA SỬ GIA NHÍ AI V2:
             sendUserMessage(prevQuestion, true);
         }
 
-        // Chuyển payload dạng [system, ...history, user] sang lượt hội thoại của Claude
-        async function callClaude(messages) {
-            const sample = await getSample();
-            if (!sample) throw new Error('AI runtime chưa sẵn sàng trên trang này');
-            const sys = messages[0] && messages[0].role === 'system' ? messages[0].content : '';
-            const rest = messages.filter(m => m.role !== 'system');
-            const turns = [];
-            rest.forEach(m => {
-                const role = m.role === 'assistant' ? 'assistant' : 'user';
-                if (turns.length && turns[turns.length - 1].role === role) {
-                    turns[turns.length - 1].content += '\n' + m.content;
-                } else {
-                    turns.push({ role, content: m.content });
-                }
+        async function callOpenAi(modelName, messages) {
+            // Hotfix bảo mật: Gọi qua endpoint backend proxy /api/chat
+            // Tuyệt đối không gửi hay để lộ secret API key trên trình duyệt
+            const response = await fetch(BACKEND_CHAT_ENDPOINT, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    model: modelName,
+                    messages: messages,
+                    temperature: 0.3,
+                    max_tokens: 800
+                })
             });
-            if (!turns.length || turns[0].role !== 'user') turns.unshift({ role: 'user', content: '(bắt đầu)' });
-            turns[0] = { role: 'user', content: sys + '\n\n---\n' + turns[0].content };
-            if (turns[turns.length - 1].role !== 'user') turns.push({ role: 'user', content: '(tiếp tục)' });
-            const result = await sample(turns, { cache: false });
-            return (result && result.text) || 'Xin lỗi bạn, mình chưa tìm thấy thông tin này trong sử sách.';
+
+            if (!response.ok) {
+                const errJson = await response.json().catch(() => ({}));
+                throw new Error(errJson.error?.message || `Lỗi kết nối Backend Proxy (HTTP ${response.status})`);
+            }
+
+            const data = await response.json();
+            return data.choices?.[0]?.message?.content || 'Xin lỗi bạn, mình chưa tìm thấy thông tin này trong sử sách.';
         }
 
         function clearChat() {
@@ -3652,150 +4542,8 @@ NGUYÊN TẮC CỐT LÕI CỦA SỬ GIA NHÍ AI V2:
             return div.innerHTML;
         }
 
-
-        // ===== 11B. VERIFICATION SUITE — BỘ CÂU HỎI CHUẨN & CHẤM ĐIỂM THẬT =====
-        const VERIFICATION_BANK = [
-            {id:"KC-01", q:"Thành Điện Hải được xây dựng năm nào, dưới thời vua nào, và đến năm nào thì được xây lại kiên cố bằng gạch?", key:"Xây năm 1813 thời vua Gia Long; năm 1823 vua Minh Mạng cho xây lại kiên cố bằng gạch. Là tiền đồn phòng thủ quan trọng bậc nhất của Đà Nẵng.", src:"Hồ sơ Di tích Quốc gia đặc biệt — Bảo tàng Đà Nẵng", kw:["1813","Gia Long","Minh Mạng"]},
-            {id:"KC-02", q:"Liên quân Pháp – Tây Ban Nha nổ súng tấn công Đà Nẵng vào ngày tháng năm nào, và danh tướng nào chỉ huy quân dân ta kháng chiến?", key:"Ngày 01/09/1858 tại bán đảo Sơn Trà; danh tướng Nguyễn Tri Phương chỉ huy, đắp lũy Liên Trì, giam chân giặc suốt 18 tháng.", src:"GDĐP & Tư liệu Bảo tàng Đà Nẵng", kw:["01/09/1858","Nguyễn Tri Phương"]},
-            {id:"KC-03", q:"Văn hóa Sa Huỳnh cách ngày nay khoảng bao nhiêu năm và có đặc trưng khảo cổ nổi bật nào?", key:"Cách nay khoảng 2.500–3.000 năm; đặc trưng táng mộ chum, khuyên tai hai đầu thú, chuỗi hạt mã não (di chỉ Vườn đình Khuê Bắc...).", src:"GDĐP Lớp 6 — Chủ đề Văn hóa Sa Huỳnh", kw:["mộ chum","khuyên tai hai đầu thú"]},
-            {id:"KC-04", q:"Khu đền tháp Mỹ Sơn thờ vị thần chủ đạo nào và có khoảng bao nhiêu công trình kiến trúc?", key:"Thờ thần Shiva (Ấn Độ giáo); quần thể hơn 70 công trình đền tháp trong thung lũng thiêng — Di sản văn hóa thế giới.", src:"GDĐP & Hồ sơ Di sản Mỹ Sơn", kw:["Shiva","70"]},
-            {id:"KC-05", q:"Bảo tàng Điêu khắc Chăm Đà Nẵng khánh thành năm nào và hiện lưu giữ bao nhiêu Bảo vật quốc gia?", key:"Khởi công 1915, khánh thành tháng 4/1919. Số Bảo vật quốc gia theo sách: 6 hiện vật (mốc năm 2023 — Chủ đề 5) và 12 hiện vật (tính đến tháng 8/2025 — Chủ đề 3), gồm Đài thờ Trà Kiệu, Mỹ Sơn E1, Bồ tát Tara, Ganesha... AI nêu 6 hoặc 12 kèm đúng mốc thời gian đều ĐẠT.", src:"GDĐP Lớp 6 — Chủ đề 3 & Chủ đề 5", kw:["1919","Trà Kiệu"]},
-            {id:"KC-06", q:"Danh xưng 'Đà Nẵng' bắt nguồn từ ngôn ngữ nào và có nghĩa là gì?", key:"Bắt nguồn từ tiếng Chăm cổ 'Đaknak' — nghĩa là 'con sông lớn' / 'cửa sông cái'.", src:"GDĐP — Nguồn gốc danh xưng", kw:["Chăm","sông lớn"]},
-            {id:"KC-07", q:"Sự kiện năm 1306 nào đã mở rộng lãnh thổ Đại Việt về phía nam tới vùng đất này?", key:"Cuộc hôn nhân của Công chúa Huyền Trân với vua Chăm Chế Mân — sính lễ là hai châu Ô và Lý (sau đổi thành Thuận Châu, Hóa Châu).", src:"GDĐP — Mở cõi phương Nam", kw:["Huyền Trân","Chế Mân"]},
-            {id:"KC-08", q:"Dinh trấn Thanh Chiêm được lập năm nào và có vai trò gì đặc biệt với chữ Quốc ngữ?", key:"Lập năm 1602 thời chúa Nguyễn; là thủ phủ Quảng Nam xưa và được xem là một trong những chiếc nôi ra đời chữ Quốc ngữ.", src:"GDĐP — Dinh trấn Thanh Chiêm", kw:["1602","Quốc ngữ"]},
-            {id:"KC-09", q:"Tourane và Faifo là tên gọi cũ của những địa danh nào, và ngày nay hai nơi này thuộc đơn vị hành chính nào?", key:"Tourane là tên Pháp gọi Đà Nẵng; Faifo là Hội An. Ngày nay cả hai cùng thuộc Thành phố Đà Nẵng (sau sáp nhập 01/7/2025).", src:"GDĐP — Địa danh qua thời gian", kw:["Đà Nẵng","Hội An"]},
-            {id:"KC-10", q:"Mẹ Nhu và 7 dũng sĩ gắn với địa phương nào và thời kỳ nào?", key:"Gắn với vùng Thanh Khê (Đà Nẵng) trong kháng chiến chống Mỹ; kỷ vật hiện lưu giữ tại Bảo tàng Đà Nẵng.", src:"Tư liệu Kháng chiến chống Mỹ — Bảo tàng Đà Nẵng", kw:["Thanh Khê","chống Mỹ"]},
-            {id:"KC-11", q:"Đà Nẵng được giải phóng vào ngày tháng năm nào?", key:"Ngày 29/3/1975.", src:"GDĐP — Giải phóng Đà Nẵng", kw:["29/3/1975"]},
-            {id:"KC-12", q:"Đà Nẵng trở thành thành phố trực thuộc Trung ương từ năm nào, tách ra từ tỉnh nào?", key:"Từ 01/01/1997, tách từ tỉnh Quảng Nam – Đà Nẵng.", src:"GDĐP — Đà Nẵng trực thuộc Trung ương", kw:["1997","Quảng Nam"]},
-            {id:"KC-13", q:"Việc hợp nhất Đà Nẵng và Quảng Nam năm 2025 được thực hiện theo Nghị quyết nào, có hiệu lực từ ngày nào?", key:"Nghị quyết 1659/NQ-UBTVQH15; hiệu lực từ ngày 01/7/2025.", src:"Nghị quyết 1659/NQ-UBTVQH15", kw:["1659","01/7/2025"]},
-            {id:"KC-14", q:"Sau sáp nhập, Thành phố Đà Nẵng có bao nhiêu đơn vị hành chính cấp xã và gồm những loại nào? Diện tích bao nhiêu?", key:"94 đơn vị hành chính cấp xã: 23 phường, 70 xã và 01 đặc khu Hoàng Sa; diện tích 11.859,62 km².", src:"GDĐP Lớp 6 — Đà Nẵng sau 01/7/2025", kw:["94","Hoàng Sa"]},
-            {id:"KC-15", q:"Sau sáp nhập 01/7/2025, trên địa bàn Thành phố Đà Nẵng có những Di sản văn hóa thế giới nào?", key:"Hai Di sản văn hóa thế giới UNESCO: Khu đền tháp Mỹ Sơn và Đô thị cổ Hội An.", src:"GDĐP — Không gian di sản sau sáp nhập", kw:["Mỹ Sơn","Hội An"]},
-        ];
-        const verifyState = VERIFICATION_BANK.map(x => ({...x, answer:"", hits:0, verdict:null, ran:false}));
-        let verifyRunning = false;
-
-        function vNorm(t){ return (t||"").normalize("NFC").toLowerCase().replace(/\s+/g," "); }
-
-        function renderVerifyList(){
-            const wrap = document.getElementById('verifyList');
-            if (!wrap) return;
-            wrap.innerHTML = verifyState.map((it,i)=>{
-                let st = '<span class="verify-status pend">⏳ Chưa chạy</span>';
-                if (it.verdict==='ok') st = '<span class="verify-status pass">✔ ĐÚNG</span>';
-                else if (it.verdict==='bad') st = '<span class="verify-status fail">✘ SAI</span>';
-                else if (it.ran) st = '<span class="verify-status pend">● Đã chạy — chờ chấm</span>';
-                const autoHint = it.ran ? `<span class="verify-meta">Tự so khớp từ khóa: <b>${it.hits}/${it.kw.length}</b> ${it.hits===it.kw.length?'→ gợi ý ĐẠT':'→ cần đối chiếu kỹ'}</span>` : '';
-                return `<div class="verify-item" id="vitem-${i}">
-                    <h4>${it.id}. ${escapeHtml(it.q)}</h4>
-                    <div class="verify-key">📗 <b>Đáp án chuẩn:</b> ${escapeHtml(it.key)}<br><span class="verify-meta">Nguồn đối chiếu: ${escapeHtml(it.src)}</span></div>
-                    ${it.ran ? `<div class="verify-ans">🤖 <b>AI trả lời:</b>\n${escapeHtml(it.answer)}</div>` : ''}
-                    <div class="verify-row-actions">
-                        <button class="v-btn run" onclick="runOneVerification(${i})">▶ Chạy câu này</button>
-                        <button class="v-btn ok ${it.verdict==='ok'?'sel':''}" onclick="setVerdict(${i},'ok')">Đúng</button>
-                        <button class="v-btn bad ${it.verdict==='bad'?'sel':''}" onclick="setVerdict(${i},'bad')">Sai</button>
-                        ${st} ${autoHint}
-                    </div>
-                </div>`;
-            }).join("");
-            updateVerifyScore();
-        }
-
-        function updateVerifyScore(){
-            const el = document.getElementById('verifyScore');
-            if (!el) return;
-            const graded = verifyState.filter(x=>x.verdict);
-            const ok = graded.filter(x=>x.verdict==='ok').length;
-            el.textContent = graded.length
-                ? `Kết quả: ${ok}/${graded.length} câu đúng = ${(ok/graded.length*100).toFixed(1)}%`
-                : 'Chưa chấm câu nào';
-        }
-
-        function setVerdict(i, v){
-            verifyState[i].verdict = (verifyState[i].verdict===v) ? null : v;
-            renderVerifyList();
-        }
-
-        async function askEngineForVerify(question){
-            const retrieval = classifyAndRetrieve(question);
-            const chunks = retrieval.retrievedChunks || [];
-            let ctx = "\n[TÀI LIỆU KIỂM CHỨNG ĐÃ TRÍCH XUẤT]:\n";
-            chunks.forEach((c,i)=>{ ctx += `\n--- Đoạn ${i+1} (${c.source} - ${c.chapter}):\n${c.content}\n`; });
-            const payload = [
-                { role:"system", content: SYSTEM_PROMPT_TEMPLATE + "\n" + ctx },
-                { role:"user", content: question }
-            ];
-            return await callClaude(payload);
-        }
-
-        async function runOneVerification(i){
-            if (verifyRunning) return;
-            const it = verifyState[i];
-            const prog = document.getElementById('verifyProgress');
-            prog.textContent = `Đang hỏi AI câu ${it.id}...`;
-            try {
-                const ans = await askEngineForVerify(it.q);
-                it.answer = ans; it.ran = true;
-                const na = vNorm(ans);
-                it.hits = it.kw.filter(k=>na.includes(vNorm(k))).length;
-                logAuditEvent({ id:"VERIFY-"+it.id+"-"+Date.now(), timestamp:new Date().toISOString(),
-                    question: it.q, classification:"VERIFICATION_SUITE",
-                    retrieved_docs:[], sources_used:[it.src], model: AI_MODEL_LABEL,
-                    latency_ms: 0, result_status:"VERIFY_RUN" });
-            } catch(e){
-                it.answer = "⚠️ Lỗi khi gọi AI: " + e.message + "\nHãy mở thẻ 💬 Sử Gia Nhí AI, bấm 'Cho phép' khi trình duyệt hỏi quyền AI rồi chạy lại.";
-                it.ran = true; it.hits = 0;
-            }
-            prog.textContent = "";
-            renderVerifyList();
-        }
-
-        async function runAllVerification(){
-            if (verifyRunning) return;
-            verifyRunning = true;
-            const btn = document.getElementById('btnRunAll');
-            btn.disabled = true;
-            const prog = document.getElementById('verifyProgress');
-            for (let i=0;i<verifyState.length;i++){
-                prog.textContent = `Đang chạy câu ${i+1}/${verifyState.length} (${verifyState[i].id})...`;
-                verifyRunning = false;           // cho phép runOne hoạt động
-                await runOneVerification(i);
-                verifyRunning = true;
-            }
-            verifyRunning = false;
-            btn.disabled = false;
-            prog.textContent = "✅ Đã chạy xong 15/15 câu — mời thầy cô đối chiếu và bấm Đúng/Sai để chốt tỉ lệ.";
-        }
-
-        function copyVerifyReport(){
-            const graded = verifyState.filter(x=>x.verdict);
-            const ok = graded.filter(x=>x.verdict==='ok').length;
-            let rp = "BÁO CÁO KIỂM CHỨNG ĐỘ CHÍNH XÁC — SỬ GIA NHÍ AI\n";
-            rp += "Thời điểm: " + new Date().toLocaleString('vi-VN') + "\n";
-            rp += "Mô hình AI: " + AI_MODEL_LABEL + " | Bộ câu hỏi: 15 câu theo Tài liệu GDĐP (Lớp 4, Lớp 6) & hồ sơ Bảo tàng\n";
-            rp += "KẾT QUẢ: " + (graded.length ? `${ok}/${graded.length} câu đúng = ${(ok/graded.length*100).toFixed(1)}%` : "chưa chấm") + "\n";
-            rp += "-".repeat(60) + "\n";
-            verifyState.forEach(it=>{
-                rp += `\n[${it.id}] ${it.q}\n`;
-                rp += `  • Đáp án chuẩn (${it.src}): ${it.key}\n`;
-                rp += `  • AI trả lời: ${it.ran ? it.answer.replace(/\n+/g,' ').slice(0,400) : '(chưa chạy)'}\n`;
-                rp += `  • Khớp từ khóa: ${it.hits}/${it.kw.length} | Chấm: ${it.verdict==='ok'?'ĐÚNG':it.verdict==='bad'?'SAI':'chưa chấm'}\n`;
-            });
-            const done = () => alert('Đã sao chép báo cáo! Anh/chị dán (Ctrl+V) vào Google Docs để lưu minh chứng.');
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(rp).then(done).catch(()=>fallbackCopy(rp, done));
-            } else fallbackCopy(rp, done);
-        }
-        function fallbackCopy(text, done){
-            const ta=document.createElement('textarea'); ta.value=text; document.body.appendChild(ta);
-            ta.select(); try{document.execCommand('copy'); done();}catch(e){alert('Không sao chép được — hãy bôi đen và copy thủ công.');}
-            document.body.removeChild(ta);
-        }
-
         // ===== 12. APP BOOTSTRAP =====
         window.addEventListener('DOMContentLoaded', () => {
-            renderVerifyList();
-            populateVoicePicker();
-            setTimeout(populateVoicePicker, 900);
             initWheel();
             renderPlaceNamesTable();
             renderSuggestions('all');

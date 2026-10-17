@@ -14,7 +14,7 @@ Mở link → bấm thẻ **💬 Sử Gia Nhí AI** → đặt câu hỏi và nh
 | 💬 Sử Gia Nhí AI | RAG trên 13 đoạn tư liệu đã kiểm chứng; mỗi câu trả lời kèm **📚 Nguồn tham khảo**; guardrail chỉ trả lời chủ đề Đà Nẵng — Xứ Quảng; chống quá tải (4 giây/câu, 60 câu/phiên) |
 | 🏛️ Bảo Tàng & Di Sản | Bảo tàng Đà Nẵng — Thành Điện Hải, Bảo tàng Điêu khắc Chăm, di sản UNESCO |
 | 📍 Địa danh qua thời gian | Đối chiếu tên cũ — tên mới sau Nghị quyết 1659/NQ-UBTVQH15 |
-| ✅ Kiểm Chứng AI | 15 câu hỏi có đáp án chuẩn theo tài liệu GDĐP; chạy AI thật, chấm Đúng/Sai, tự tính % chính xác, xuất báo cáo |
+| 📊 Minh chứng test | Bộ câu hỏi kiểm chứng có đáp án chuẩn theo tài liệu GDĐP, chạy AI thật để giám khảo/giáo viên tự đánh giá độ chính xác |
 | 🔊 Nghe đọc | Giọng tiếng Việt khóa 1 giọng, tự chọn giọng, đọc đúng viết tắt (TK VII → "thế kỷ bảy", ngày tháng, số La Mã) |
 
 ## 📂 Cấu trúc kho mã

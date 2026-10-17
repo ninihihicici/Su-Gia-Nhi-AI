@@ -1,0 +1,892 @@
+{
+  "stations": [
+    {
+      "station_id": 1,
+      "roman_numeral": "I",
+      "official_title": "Tiền Sử & Văn Hóa Sa Huỳnh",
+      "short_title": "Sa Huỳnh & Cội Nguồn",
+      "era_span": "Trước CN – Thế kỷ II",
+      "icon": "🏺",
+      "primary_summary": {
+        "text": "Từ ngàn năm trước, người cổ Sa Huỳnh đã sinh sống ven biển Sơn Trà và Ngũ Hành Sơn. Các bạn nhỏ có thể nhìn thấy những chiếc chum gốm khổng lồ và khuyên tai hai đầu thú rất đẹp tại Bảo tàng Đà Nẵng nè!",
+        "target_audience": "Tiểu học (Lớp 4 - 5)",
+        "derived_from_facts": [
+          "FACT-SAHUYNH-01"
+        ]
+      },
+      "secondary_summary": {
+        "text": "Dấu tích cư dân thời tiền sử cách đây hơn 3.000 năm tại bán đảo Sơn Trà. Nền văn hóa Sa Huỳnh rực rỡ với di chỉ khảo cổ học Vườn đình Khuê Bắc (quận Ngũ Hành Sơn), đặc trưng táng thức mộ chum gốm nung, công cụ sắt và khuyên tai ngọc mã não minh chứng cho giao thương hàng hải biển sớm.",
+        "target_audience": "THCS (Lớp 6 - 9)",
+        "derived_from_facts": [
+          "FACT-SAHUYNH-01"
+        ]
+      },
+      "verified_fact_ids": [
+        "FACT-SAHUYNH-01"
+      ],
+      "key_milestones": [
+        {
+          "year_or_date": "Cách nay ~3000 năm",
+          "event_title": "Dấu tích cư dân Sa Huỳnh cổ tại Vườn đình Khuê Bắc",
+          "fact_id": "FACT-SAHUYNH-01"
+        }
+      ],
+      "heritage_relics": [
+        "Di chỉ khảo cổ học Vườn đình Khuê Bắc",
+        "Mộ chum gốm Sa Huỳnh tại Bảo tàng Đà Nẵng"
+      ],
+      "prominent_figures": "Cư dân bản địa cổ Sa Huỳnh miền Trung",
+      "common_misconceptions": [
+        {
+          "misconception": "Nghĩ rằng vùng đất Đà Nẵng chỉ mới có người sinh sống từ thời nhà Trần hoặc chúa Nguyễn.",
+          "correction": "Khảo cổ học chứng minh từ 3.000 năm trước cư dân Sa Huỳnh đã cư trú và giao thương sầm uất tại đây.",
+          "factual_basis_fact_id": "FACT-SAHUYNH-01"
+        }
+      ],
+      "verified_image": {
+        "filename_or_url": "https://baotangdanang.vn/wp-content/uploads/2019/08/mo-chum-sa-huynh.jpg",
+        "caption": "Mộ chum văn hóa Sa Huỳnh khai quật tại Ngũ Hành Sơn trưng bày tại Bảo tàng Đà Nẵng",
+        "historical_context": "Văn hóa Sa Huỳnh thế kỷ I TCN",
+        "image_source_credit": "Bảo tàng Đà Nẵng"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "station_id": 2,
+      "roman_numeral": "II",
+      "official_title": "Vương Quốc Lâm Ấp & Champa Cổ Kính",
+      "short_title": "Lâm Ấp & Champa",
+      "era_span": "Thế kỷ II – Thế kỷ X",
+      "icon": "🛕",
+      "primary_summary": {
+        "text": "Thời kỳ này, vùng đất xứ Quảng thuộc vương quốc Champa với Thánh địa Mỹ Sơn uy nghiêm và kinh đô Trà Kiệu. Các đền tháp được xây bằng gạch nung đỏ rực rất kỳ diệu mà không hề thấy vết vữa!",
+        "target_audience": "Tiểu học (Lớp 4 - 5)",
+        "derived_from_facts": [
+          "FACT-MYSON-01"
+        ]
+      },
+      "secondary_summary": {
+        "text": "Đà Nẵng thuộc châu Amaravati của vương quốc Lâm Ấp - Champa. Quần thể Đền tháp Mỹ Sơn được khởi dựng từ thế kỷ IV thờ thần Shiva. Cùng thời kỳ này là Phật viện Đồng Dương (cuối thế kỷ IX) và các di tích Chăm Phong Lệ minh chứng cho đỉnh cao nghệ thuật kiến trúc điêu khắc.",
+        "target_audience": "THCS (Lớp 6 - 9)",
+        "derived_from_facts": [
+          "FACT-MYSON-01"
+        ]
+      },
+      "verified_fact_ids": [
+        "FACT-MYSON-01"
+      ],
+      "key_milestones": [
+        {
+          "year_or_date": "Thế kỷ IV",
+          "event_title": "Khởi dựng Thánh địa tôn giáo Mỹ Sơn dưới triều vua Bhadravarman I",
+          "fact_id": "FACT-MYSON-01"
+        }
+      ],
+      "heritage_relics": [
+        "Quần thể Đền tháp Mỹ Sơn (UNESCO 1999)",
+        "Kinh đô Simhapura (Trà Kiệu)",
+        "Di chỉ tháp Chăm Phong Lệ"
+      ],
+      "prominent_figures": "Vua Bhadravarman I; Vua Indravarman II (Phật viện Đồng Dương)",
+      "common_misconceptions": [
+        {
+          "misconception": "Nghĩ rằng Mỹ Sơn chỉ thuộc tỉnh Quảng Nam cũ nên học sinh Đà Nẵng không cần học.",
+          "correction": "Từ 01/7/2025 theo NQ 1659, Mỹ Sơn thuộc xã Thu Bồn, thành phố Đà Nẵng và là di sản trọng điểm trong GDĐP Lớp 6.",
+          "factual_basis_fact_id": "FACT-MYSON-01"
+        }
+      ],
+      "verified_image": {
+        "filename_or_url": "https://disanmy-son.vn/wp-content/uploads/2020/09/den-thap-my-son.jpg",
+        "caption": "Quần thể đền tháp Mỹ Sơn xây dựng liên tục từ thế kỷ IV đến thế kỷ XIII",
+        "historical_context": "Di sản Văn hóa Thế giới UNESCO",
+        "image_source_credit": "Ban Quản lý Di sản Văn hóa Mỹ Sơn"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "station_id": 3,
+      "roman_numeral": "III",
+      "official_title": "Thời Kỳ Đại Việt Mở Cõi Phương Nam",
+      "short_title": "Đại Việt Mở Cõi",
+      "era_span": "1306 – 1470",
+      "icon": "👑",
+      "primary_summary": {
+        "text": "Năm 1306, Công chúa Huyền Trân kết duyên cùng vua Chế Mân, mang về cho nước ta hai châu Ô và Lý. Vùng đất Đà Nẵng bắt đầu đón những người dân Đại Việt hiền hòa vào khai hoang lập ấp.",
+        "target_audience": "Tiểu học (Lớp 4 - 5)",
+        "derived_from_facts": [
+          "FACT-DINHTRAN-01"
+        ]
+      },
+      "secondary_summary": {
+        "text": "Cuộc hôn duyên lịch sử năm 1306 giữa Công chúa Huyền Trân và vua Jaya Simhavarman III (Chế Mân) đưa hai châu Ô, Lý về cương vực Đại Việt (vua Trần Anh Tông đổi tên thành Thuận Hóa). Cư dân người Việt bắt đầu cùng chung sống hòa hợp với cư dân bản địa ven cửa biển Cửa Hàn.",
+        "target_audience": "THCS (Lớp 6 - 9)",
+        "derived_from_facts": [
+          "FACT-DINHTRAN-01"
+        ]
+      },
+      "verified_fact_ids": [
+        "FACT-DINHTRAN-01"
+      ],
+      "key_milestones": [
+        {
+          "year_or_date": "1306",
+          "event_title": "Sự kiện Công chúa Huyền Trân; sáp nhập hai châu Ô, Lý vào Đại Việt",
+          "fact_id": "FACT-DINHTRAN-01"
+        }
+      ],
+      "heritage_relics": [
+        "Địa danh Cửa Hàn (Đà Nẵng)",
+        "Đền thờ Công chúa Huyền Trân"
+      ],
+      "prominent_figures": "Công chúa Huyền Trân; Vua Trần Nhân Tông; Vua Trần Anh Tông",
+      "common_misconceptions": [
+        {
+          "misconception": "Nghĩ rằng Đà Nẵng được sáp nhập vào Đại Việt từ thời nhà Lý.",
+          "correction": "Phải đến năm 1306 thời nhà Trần, cương vực Đại Việt mới mở rộng đến bờ bắc sông Thu Bồn.",
+          "factual_basis_fact_id": "FACT-DINHTRAN-01"
+        }
+      ],
+      "verified_image": {
+        "filename_or_url": "https://baodanang.vn/dataimages/202104/original/images1618392_huyen_tran.jpg",
+        "caption": "Tượng Công chúa Huyền Trân - biểu tượng mở cõi phương Nam năm 1306",
+        "historical_context": "Thời nhà Trần (1306)",
+        "image_source_credit": "Tư liệu Lịch sử Xứ Quảng"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "station_id": 4,
+      "roman_numeral": "IV",
+      "official_title": "Đạo Thừa Tuyên Quảng Nam Thời Lê Sơ",
+      "short_title": "Đạo Thừa Tuyên 1471",
+      "era_span": "1471 – 1558",
+      "icon": "📜",
+      "primary_summary": {
+        "text": "Năm 1471, vua Lê Thánh Tông tài ba đã đặt tên cho vùng đất quê hương mình là 'Quảng Nam' - nghĩa là dải đất phương Nam rộng lớn và yên bình đó các bạn!",
+        "target_audience": "Tiểu học (Lớp 4 - 5)",
+        "derived_from_facts": [
+          "FACT-DINHTRAN-01"
+        ]
+      },
+      "secondary_summary": {
+        "text": "Tháng 6/1471, vua Lê Thánh Tông ban sắc chỉ thành lập Đạo Thừa tuyên Quảng Nam (đạo thứ 13 của Đại Việt), với ý nghĩa 'mở rộng về phương Nam'. Đà Nẵng thuộc huyện Diên Phước, phủ Triệu Phong. Hệ thống làng xã cổ bắt đầu định hình vững chắc.",
+        "target_audience": "THCS (Lớp 6 - 9)",
+        "derived_from_facts": [
+          "FACT-DINHTRAN-01"
+        ]
+      },
+      "verified_fact_ids": [
+        "FACT-DINHTRAN-01"
+      ],
+      "key_milestones": [
+        {
+          "year_or_date": "Tháng 6/1471",
+          "event_title": "Vua Lê Thánh Tông định danh Đạo Thừa tuyên Quảng Nam",
+          "fact_id": "FACT-DINHTRAN-01"
+        }
+      ],
+      "heritage_relics": [
+        "Hệ thống đình làng cổ Hải Châu, Thạch Bộ, Túy Loan"
+      ],
+      "prominent_figures": "Vua Lê Thánh Tông; Các vị Tiền hiền khai hoang lập làng",
+      "common_misconceptions": [
+        {
+          "misconception": "Nghĩ rằng tên gọi 'Quảng Nam' do các chúa Nguyễn đặt ra.",
+          "correction": "Tên gọi 'Quảng Nam' chính thức do vua Lê Thánh Tông đặt vào tháng 6 năm 1471.",
+          "factual_basis_fact_id": "FACT-DINHTRAN-01"
+        }
+      ],
+      "verified_image": {
+        "filename_or_url": "https://baodanang.vn/dataimages/202106/original/images1623812_le_thanh_tong.jpg",
+        "caption": "Sắc chỉ định danh Đạo Thừa Tuyên Quảng Nam năm 1471",
+        "historical_context": "Vua Lê Thánh Tông mở cõi 1471",
+        "image_source_credit": "Bảo tàng Đà Nẵng"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "station_id": 5,
+      "roman_numeral": "V",
+      "official_title": "Thương Cảng Quốc Tế Hội An & Cửa Hàn",
+      "short_title": "Thương Cảng Hội An - Cửa Hàn",
+      "era_span": "1558 – 1600",
+      "icon": "⛵",
+      "primary_summary": {
+        "text": "Tàu buôn từ Nhật Bản, Trung Quốc và châu Âu tấp nập cập bến Hội An và Cửa Hàn để mua lụa tơ tằm, trầm hương và đồ gốm. Phố cổ Hội An ngày nay vẫn giữ được những mái ngói rêu phong tuyệt đẹp!",
+        "target_audience": "Tiểu học (Lớp 4 - 5)",
+        "derived_from_facts": [
+          "FACT-DINHTRAN-01"
+        ]
+      },
+      "secondary_summary": {
+        "text": "Dưới thời chúa Tiên Nguyễn Hoàng, Hội An (Faifo) trở thành đô thị thương cảng quốc tế sầm uất bậc nhất Đông Nam Á trên 'Con đường tơ lụa và gốm sứ trên biển'. Tiền cảng Cửa Hàn (Đà Nẵng) giữ vai trò trạm trung chuyển nước ngọt và trú bão chiến lược cho các hải đoàn tàu buôn.",
+        "target_audience": "THCS (Lớp 6 - 9)",
+        "derived_from_facts": [
+          "FACT-DINHTRAN-01"
+        ]
+      },
+      "verified_fact_ids": [
+        "FACT-DINHTRAN-01"
+      ],
+      "key_milestones": [
+        {
+          "year_or_date": "1558",
+          "event_title": "Chúa Nguyễn Hoàng vào trấn thủ xứ Thuận Hóa, mở đầu kỷ nguyên Đàng Trong",
+          "fact_id": "FACT-DINHTRAN-01"
+        }
+      ],
+      "heritage_relics": [
+        "Đô thị cổ Hội An (UNESCO 1999)",
+        "Cửa Hàn cổ",
+        "Chùa Cầu Nhật Bản"
+      ],
+      "prominent_figures": "Chúa Tiên Nguyễn Hoàng; Các thương nhân Châu Ấn thuyền Nhật Bản",
+      "common_misconceptions": [
+        {
+          "misconception": "Nghĩ rằng thời chúa Nguyễn tàu thuyền phương Tây chỉ cập cảng Hải Phòng hoặc Sài Gòn.",
+          "correction": "Hội An và Cửa Hàn (Đà Nẵng) là cửa ngõ giao thương quốc tế quan trọng nhất của Xứ Đàng Trong suốt thế kỷ XVI-XVIII.",
+          "factual_basis_fact_id": "FACT-DINHTRAN-01"
+        }
+      ],
+      "verified_image": {
+        "filename_or_url": "https://baodanang.vn/dataimages/202008/original/images1597812_pho_co_hoi_an.jpg",
+        "caption": "Thương cảng quốc tế Hội An thế kỷ XVII trên dòng sông Thu Bồn",
+        "historical_context": "Di sản Văn hóa Thế giới UNESCO Hội An",
+        "image_source_credit": "Bảo tàng Hội An"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "station_id": 6,
+      "roman_numeral": "VI",
+      "official_title": "Dinh Trấn Thanh Chiêm & Chữ Quốc Ngữ",
+      "short_title": "Dinh Trấn Thanh Chiêm 1602",
+      "era_span": "1602 – 1650",
+      "icon": "🖋️",
+      "primary_summary": {
+        "text": "Dinh trấn Thanh Chiêm (nay thuộc phường Điện Bàn) là nơi ra đời của chữ Quốc ngữ bằng mẫu tự Latinh mà chúng mình đang đọc viết mỗi ngày đó! Nơi đây còn nổi tiếng với Làng đúc đồng Phước Kiều đúc cồng chiêng rất hay.",
+        "target_audience": "Tiểu học (Lớp 4 - 5)",
+        "derived_from_facts": [
+          "FACT-DINHTRAN-01",
+          "FACT-PHUOCKIEU-01"
+        ]
+      },
+      "secondary_summary": {
+        "text": "Năm 1602, chúa Tiên Nguyễn Hoàng lập Dinh trấn Thanh Chiêm, thủ phủ thứ hai của Đàng Trong. Nơi đây các giáo sĩ Dòng Tên (tiêu biểu Francisco de Pina) học tiếng Việt và sáng tạo chữ Quốc ngữ (từ 1615). Làng nghề đúc đồng Phước Kiều đỏ lửa cung cấp súng đạn, chuông chiêng cho Dinh trấn suốt 400 năm.",
+        "target_audience": "THCS (Lớp 6 - 9)",
+        "derived_from_facts": [
+          "FACT-DINHTRAN-01",
+          "FACT-PHUOCKIEU-01"
+        ]
+      },
+      "verified_fact_ids": [
+        "FACT-DINHTRAN-01",
+        "FACT-PHUOCKIEU-01"
+      ],
+      "key_milestones": [
+        {
+          "year_or_date": "1602",
+          "event_title": "Chúa Nguyễn Hoàng thành lập Dinh trấn Thanh Chiêm",
+          "fact_id": "FACT-DINHTRAN-01"
+        },
+        {
+          "year_or_date": "1615",
+          "event_title": "Giáo sĩ Francisco de Pina đến Thanh Chiêm, phôi thai chữ Quốc ngữ",
+          "fact_id": "FACT-DINHTRAN-01"
+        }
+      ],
+      "heritage_relics": [
+        "Di tích Dinh trấn Thanh Chiêm",
+        "Làng đúc đồng Phước Kiều 400 năm"
+      ],
+      "prominent_figures": "Chúa Sãi Nguyễn Phúc Nguyên; Giáo sĩ Francisco de Pina; Nghệ nhân làng Phước Kiều",
+      "common_misconceptions": [
+        {
+          "misconception": "Nghĩ rằng Alexandre de Rhodes một mình sáng chế ra chữ Quốc ngữ tại châu Âu.",
+          "correction": "Cái nôi thực sự phôi thai chữ Quốc ngữ là Dinh trấn Thanh Chiêm (Điện Bàn) từ năm 1615 nhờ công sức giáo sĩ Francisco de Pina cùng các thầy giảng người Việt.",
+          "factual_basis_fact_id": "FACT-DINHTRAN-01"
+        }
+      ],
+      "verified_image": {
+        "filename_or_url": "https://baodanang.vn/dataimages/202010/original/images1602812_thanh_chiem.jpg",
+        "caption": "Bia di tích Dinh trấn Thanh Chiêm - cái nôi chữ Quốc ngữ tại Điện Bàn",
+        "historical_context": "Thế kỷ XVII",
+        "image_source_credit": "UBND Thị xã Điện Bàn"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "station_id": 7,
+      "roman_numeral": "VII",
+      "official_title": "Phong Trào Tây Sơn & Căn Cứ Cửa Hàn",
+      "short_title": "Thời Đại Tây Sơn",
+      "era_span": "1771 – 1802",
+      "icon": "⚔️",
+      "primary_summary": {
+        "text": "Ba anh em Tây Sơn dũng mãnh, đặc biệt là Anh hùng Quang Trung - Nguyễn Huệ, đã nhiều lần qua lại Cửa Hàn để chỉ huy thủy quân, lập nên những chiến công hiển hách đánh bại quân xâm lược.",
+        "target_audience": "Tiểu học (Lớp 4 - 5)",
+        "derived_from_facts": [
+          "FACT-DINHTRAN-01"
+        ]
+      },
+      "secondary_summary": {
+        "text": "Trong phong trào khởi nghĩa Tây Sơn, vùng vịnh Đà Nẵng và cửa sông Hàn giữ vị trí căn cứ hải quân yết hầu. Năm 1775, quân Tây Sơn do Nguyễn Huệ chỉ huy đã đánh bại quân Trịnh và quân chúa Nguyễn, kiểm soát toàn bộ phòng tuyến miền Trung làm bàn đạp tiến ra Bắc Hà.",
+        "target_audience": "THCS (Lớp 6 - 9)",
+        "derived_from_facts": [
+          "FACT-DINHTRAN-01"
+        ]
+      },
+      "verified_fact_ids": [
+        "FACT-DINHTRAN-01"
+      ],
+      "key_milestones": [
+        {
+          "year_or_date": "1775",
+          "event_title": "Quân Tây Sơn giải phóng vùng đất Quảng Nam - Cửa Hàn",
+          "fact_id": "FACT-DINHTRAN-01"
+        }
+      ],
+      "heritage_relics": [
+        "Vịnh Cửa Hàn",
+        "Pháo đài cổ Tây Sơn"
+      ],
+      "prominent_figures": "Hoàng đế Quang Trung (Nguyễn Huệ); Thái phó Nguyễn Văn Nhơn",
+      "common_misconceptions": [
+        {
+          "misconception": "Nghĩ rằng phong trào Tây Sơn chỉ diễn ra ở Bình Định và Thăng Long.",
+          "correction": "Đà Nẵng và Quảng Nam là chiến trường quyết định nơi quân Tây Sơn bẻ gãy gọng kìm liên minh Trịnh - Nguyễn.",
+          "factual_basis_fact_id": "FACT-DINHTRAN-01"
+        }
+      ],
+      "verified_image": {
+        "filename_or_url": "https://baodanang.vn/dataimages/202102/original/images1612812_quang_trung.jpg",
+        "caption": "Tượng đài Hoàng đế Quang Trung chỉ huy thủy quân Tây Sơn",
+        "historical_context": "Kỷ nguyên Tây Sơn (1771-1802)",
+        "image_source_credit": "Bảo tàng Lịch sử Quân sự"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "station_id": 8,
+      "roman_numeral": "VIII",
+      "official_title": "Triều Nguyễn & Phòng Tuyến Vịnh Đà Nẵng",
+      "short_title": "Triều Nguyễn & Hải Vân Quan",
+      "era_span": "1802 – 1858",
+      "icon": "🏯",
+      "primary_summary": {
+        "text": "Vua Gia Long và vua Minh Mạng cho xây đồn Điện Hải và cửa ải Hải Vân Quan hùng vĩ được mệnh danh là 'Thiên hạ đệ nhất hùng quan' để bảo vệ vịnh biển Đà Nẵng.",
+        "target_audience": "Tiểu học (Lớp 4 - 5)",
+        "derived_from_facts": [
+          "FACT-DIENHAI-01"
+        ]
+      },
+      "secondary_summary": {
+        "text": "Triều Nguyễn quy định Đà Nẵng là tiền cảng duy nhất được tàu buôn phương Tây cập bến. Năm 1813 vua Gia Long lập đồn Điện Hải, năm 1823 vua Minh Mạng nâng cấp thành Thành Điện Hải (thành Vauban). Năm 1826 xây dựng Hải Vân Quan trên đỉnh đèo Hải Vân tạo thành tuyến phòng thủ chiến lược bảo vệ kinh đô Huế.",
+        "target_audience": "THCS (Lớp 6 - 9)",
+        "derived_from_facts": [
+          "FACT-DIENHAI-01"
+        ]
+      },
+      "verified_fact_ids": [
+        "FACT-DIENHAI-01"
+      ],
+      "key_milestones": [
+        {
+          "year_or_date": "1813",
+          "event_title": "Vua Gia Long cho đắp đồn Điện Hải bảo vệ cửa biển",
+          "fact_id": "FACT-DIENHAI-01"
+        },
+        {
+          "year_or_date": "1826",
+          "event_title": "Vua Minh Mạng cho xây dựng cửa ải Hải Vân Quan",
+          "fact_id": "FACT-DIENHAI-01"
+        }
+      ],
+      "heritage_relics": [
+        "Hải Vân Quan (Di tích Quốc gia)",
+        "Thành Điện Hải nguyên bản 1823"
+      ],
+      "prominent_figures": "Vua Gia Long; Vua Minh Mạng",
+      "common_misconceptions": [
+        {
+          "misconception": "Nghĩ rằng Hải Vân Quan do thực dân Pháp xây dựng để kiểm soát đèo.",
+          "correction": "Hải Vân Quan do vua Minh Mạng triều Nguyễn cho xây dựng năm 1826 bằng gạch đá kiên cố.",
+          "factual_basis_fact_id": "FACT-DIENHAI-01"
+        }
+      ],
+      "verified_image": {
+        "filename_or_url": "https://baodanang.vn/dataimages/202107/original/images1626812_hai_van_quan.jpg",
+        "caption": "Di tích Hải Vân Quan - 'Thiên hạ đệ nhất hùng quan' xây năm 1826",
+        "historical_context": "Triều Nguyễn (1826)",
+        "image_source_credit": "Bảo tàng Đà Nẵng"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "station_id": 9,
+      "roman_numeral": "IX",
+      "official_title": "Tiếng Súng Kháng Pháp 1858 & Thành Điện Hải",
+      "short_title": "Mặt Trận 1858 & Điện Hải",
+      "era_span": "1858 – 1860",
+      "icon": "💣",
+      "primary_summary": {
+        "text": "Ngày 01/9/1858, quân Pháp nổ súng tấn công Đà Nẵng. Danh tướng Nguyễn Tri Phương cùng quân dân ta đã dũng cảm chặn đứng giặc tại Thành Điện Hải suốt 18 tháng, buộc giặc phải rút lui!",
+        "target_audience": "Tiểu học (Lớp 4 - 5)",
+        "derived_from_facts": [
+          "FACT-DIENHAI-01",
+          "FACT-NGHIA-TRUNG-01"
+        ]
+      },
+      "secondary_summary": {
+        "text": "Ngày 01/09/1858, Liên quân Pháp - Tây Ban Nha nổ súng xâm lược vịnh Đà Nẵng. Danh tướng Nguyễn Tri Phương chỉ huy đắp chiến lũy Liên Trì dài hàng ngàn trượng, thực hiện 'vườn không nhà trống', giam chân giặc suốt 18 tháng, bẻ gãy âm mưu đánh nhanh thắng nhanh buộc chúng rút khỏi Đà Nẵng tháng 3/1860. Thành Điện Hải được công nhận là Di tích Quốc gia Đặc biệt năm 2017.",
+        "target_audience": "THCS (Lớp 6 - 9)",
+        "derived_from_facts": [
+          "FACT-DIENHAI-01",
+          "FACT-NGHIA-TRUNG-01"
+        ]
+      },
+      "verified_fact_ids": [
+        "FACT-DIENHAI-01",
+        "FACT-NGHIA-TRUNG-01"
+      ],
+      "key_milestones": [
+        {
+          "year_or_date": "01/09/1858",
+          "event_title": "Tiếng súng xâm lược đầu tiên của thực dân Pháp tại bán đảo Sơn Trà",
+          "fact_id": "FACT-DIENHAI-01"
+        },
+        {
+          "year_or_date": "Tháng 3/1860",
+          "event_title": "Quân Pháp thất bại kế hoạch đánh nhanh, rút quân khỏi Đà Nẵng",
+          "fact_id": "FACT-DIENHAI-01"
+        }
+      ],
+      "heritage_relics": [
+        "Di tích Quốc gia Đặc biệt Thành Điện Hải",
+        "Nghĩa trủng Hòa Vang",
+        "Nghĩa trủng Phước Ninh"
+      ],
+      "prominent_figures": "Danh tướng Nguyễn Tri Phương; Tướng quân Lê Đình Lý; Các nghĩa sĩ 1858",
+      "common_misconceptions": [
+        {
+          "misconception": "Nghĩ rằng Pháp chiếm được Đà Nẵng ngay trong năm 1858.",
+          "correction": "Quân dân Đà Nẵng dưới sự chỉ huy của Nguyễn Tri Phương đã giam chân giặc suốt 18 tháng và đánh lui quân xâm lược vào tháng 3/1860.",
+          "factual_basis_fact_id": "FACT-DIENHAI-01"
+        }
+      ],
+      "verified_image": {
+        "filename_or_url": "https://baotangdanang.vn/wp-content/uploads/2019/08/thanh-dien-hai-danang.jpg",
+        "caption": "Thành Điện Hải - Di tích Quốc gia Đặc biệt chứng tích cuộc kháng chiến 1858-1860",
+        "historical_context": "Bảo tàng Đà Nẵng",
+        "image_source_credit": "Bảo tàng Đà Nẵng"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "station_id": 10,
+      "roman_numeral": "X",
+      "official_title": "Phong Trào Cần Vương & Nghĩa Hội Xứ Quảng",
+      "short_title": "Cần Vương & Nghĩa Hội",
+      "era_span": "1885 – 1887",
+      "icon": "🚩",
+      "primary_summary": {
+        "text": "Hưởng ứng Chiếu Cần Vương, Tướng quân Nguyễn Duy Hiệu lập căn cứ Tân Tỉnh tại Hòn Kẽm Đá Dừng trên sông Thu Bồn để đánh Pháp. Dù hy sinh anh dũng nhưng tên tuổi của ông mãi được nhân dân kính yêu!",
+        "target_audience": "Tiểu học (Lớp 4 - 5)",
+        "derived_from_facts": [
+          "FACT-HONKEM-01"
+        ]
+      },
+      "secondary_summary": {
+        "text": "Năm 1885, phong trào Nghĩa Hội Quảng Nam do Trần Văn Dư và sau đó là Tướng quân Nguyễn Duy Hiệu (Hường Hiệu) lãnh đạo hưởng ứng Chiếu Cần Vương. Xây dựng căn cứ Tân Tỉnh kiên cố tại Hòn Kẽm Đá Dừng (Hiệp Đức) trên thượng nguồn sông Thu Bồn, chiến đấu quả cảm làm quân Pháp khiếp sợ.",
+        "target_audience": "THCS (Lớp 6 - 9)",
+        "derived_from_facts": [
+          "FACT-HONKEM-01"
+        ]
+      },
+      "verified_fact_ids": [
+        "FACT-HONKEM-01"
+      ],
+      "key_milestones": [
+        {
+          "year_or_date": "1885",
+          "event_title": "Phong trào Nghĩa Hội Quảng Nam bùng nổ hưởng ứng Chiếu Cần Vương",
+          "fact_id": "FACT-HONKEM-01"
+        },
+        {
+          "year_or_date": "1887",
+          "event_title": "Nguyễn Duy Hiệu hi sinh anh dũng, phong trào Nghĩa Hội để lại tấm gương sáng ngời",
+          "fact_id": "FACT-HONKEM-01"
+        }
+      ],
+      "heritage_relics": [
+        "Thắng cảnh Hòn Kẽm Đá Dừng",
+        "Mộ chí Tướng quân Nguyễn Duy Hiệu"
+      ],
+      "prominent_figures": "Tướng quân Nguyễn Duy Hiệu (Hường Hiệu); Tiến sĩ Trần Văn Dư; Phan Bá Phiến",
+      "common_misconceptions": [
+        {
+          "misconception": "Nghĩ rằng phong trào Cần Vương chỉ diễn ra mạnh ở Thanh Hóa, Hà Tĩnh.",
+          "correction": "Nghĩa Hội Quảng Nam là một trong những cuộc khởi nghĩa Cần Vương có tổ chức quy củ và căn cứ hiểm trở nhất miền Trung.",
+          "factual_basis_fact_id": "FACT-HONKEM-01"
+        }
+      ],
+      "verified_image": {
+        "filename_or_url": "https://baodanang.vn/dataimages/202011/original/images1605812_hon_kem_da_dung.jpg",
+        "caption": "Thắng cảnh Hòn Kẽm Đá Dừng trên sông Thu Bồn - Căn cứ Tân Tỉnh năm 1885",
+        "historical_context": "Kháng chiến Cần Vương (1885-1887)",
+        "image_source_credit": "Sở VHTT Đà Nẵng"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "station_id": 11,
+      "roman_numeral": "XI",
+      "official_title": "Nhượng Địa Tourane & Cách Mạng Tháng Tám 1945",
+      "short_title": "Tourane & CMT8 1945",
+      "era_span": "1888 – 1954",
+      "icon": "⭐️",
+      "primary_summary": {
+        "text": "Ngày 26/08/1945, nhân dân Đà Nẵng đồng lòng khởi nghĩa giành chính quyền rực rỡ cờ đỏ sao vàng. Tiếp đó quân dân thành phố kiên cường chiến đấu suốt 9 năm kháng chiến chống Pháp thắng lợi!",
+        "target_audience": "Tiểu học (Lớp 4 - 5)",
+        "derived_from_facts": [
+          "FACT-TOURANE-01"
+        ]
+      },
+      "secondary_summary": {
+        "text": "Năm 1888, thực dân Pháp ép triều đình biến Đà Nẵng thành thành phố nhượng địa Tourane. Ngày 26/08/1945, nhân dân đồng loạt nổi dậy khởi nghĩa giành chính quyền tại Tòa Đốc lý. Cuối năm 1946, hưởng ứng Lời kêu gọi Toàn quốc kháng chiến của Chủ tịch Hồ Chí Minh, quân dân Đà Nẵng giam chân quân Pháp suốt nhiều tuần lễ.",
+        "target_audience": "THCS (Lớp 6 - 9)",
+        "derived_from_facts": [
+          "FACT-TOURANE-01"
+        ]
+      },
+      "verified_fact_ids": [
+        "FACT-TOURANE-01"
+      ],
+      "key_milestones": [
+        {
+          "year_or_date": "03/10/1888",
+          "event_title": "Thực dân Pháp lập nhượng địa Tourane",
+          "fact_id": "FACT-TOURANE-01"
+        },
+        {
+          "year_or_date": "26/08/1945",
+          "event_title": "Khởi nghĩa giành chính quyền thắng lợi rực rỡ tại Đà Nẵng",
+          "fact_id": "FACT-TOURANE-01"
+        }
+      ],
+      "heritage_relics": [
+        "Tòa Đốc lý Tourane (nay là Bảo tàng Đà Nẵng cũ)",
+        "Bảo tàng Điêu khắc Chăm (thành lập 1915-1919)"
+      ],
+      "prominent_figures": "Đồng chí Lê Văn Hiến; Các chiến sĩ cảm tử quân Đà Nẵng",
+      "common_misconceptions": [
+        {
+          "misconception": "Nghĩ rằng Đà Nẵng giành chính quyền cùng ngày 19/8 như Hà Nội.",
+          "correction": "Đà Nẵng khởi nghĩa giành chính quyền thắng lợi vào ngày 26 tháng 8 năm 1945.",
+          "factual_basis_fact_id": "FACT-TOURANE-01"
+        }
+      ],
+      "verified_image": {
+        "filename_or_url": "https://baodanang.vn/dataimages/202008/original/images1598412_khoi_nghia_26_8.jpg",
+        "caption": "Mít tinh khởi nghĩa giành chính quyền ngày 26/8/1945 tại Tòa Đốc lý Đà Nẵng",
+        "historical_context": "Cách mạng Tháng Tám 1945",
+        "image_source_credit": "Bảo tàng Đà Nẵng"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "station_id": 12,
+      "roman_numeral": "XII",
+      "official_title": "Kháng Chiến Chống Mỹ & Đất Thép Thành Đồng",
+      "short_title": "Đất Thép Chống Mỹ",
+      "era_span": "1954 – 1975",
+      "icon": "✊",
+      "primary_summary": {
+        "text": "Trong kháng chiến chống Mỹ, Mẹ Nhu hiền từ đã đào hầm bí mật nuôi giấu 7 dũng sĩ Thanh Khê. Anh dũng hy sinh của Mẹ đã tiếp thêm sức mạnh cho quân dân Đà Nẵng chiến đấu giải phóng quê hương!",
+        "target_audience": "Tiểu học (Lớp 4 - 5)",
+        "derived_from_facts": [
+          "FACT-MENHU-01"
+        ]
+      },
+      "secondary_summary": {
+        "text": "Mỹ biến Đà Nẵng thành căn cứ quân sự liên hợp khổng lồ từ năm 1965. Quân dân Đà Nẵng lập nên 'Vành đai diệt Mỹ Hòa Vang' bất khuất. Tiêu biểu là tấm gương Mẹ Nhu (Lê Thị Dãnh) đào hầm nuôi giấu 7 dũng sĩ Thanh Khê (1968), anh hùng thiếu niên liệt sĩ Lê Độ, căn cứ lõm B1 Hồng Phước kiên cường.",
+        "target_audience": "THCS (Lớp 6 - 9)",
+        "derived_from_facts": [
+          "FACT-MENHU-01"
+        ]
+      },
+      "verified_fact_ids": [
+        "FACT-MENHU-01"
+      ],
+      "key_milestones": [
+        {
+          "year_or_date": "08/03/1965",
+          "event_title": "Lính thủy đánh bộ Mỹ đổ bộ bãi biển Đà Nẵng",
+          "fact_id": "FACT-MENHU-01"
+        },
+        {
+          "year_or_date": "26/12/1968",
+          "event_title": "Trận đánh huyền thoại tại hầm Mẹ Nhu và 7 dũng sĩ Thanh Khê",
+          "fact_id": "FACT-MENHU-01"
+        }
+      ],
+      "heritage_relics": [
+        "Tượng đài Mẹ Nhu (quận Thanh Khê)",
+        "Căn cứ lõm cách mạng B1 Hồng Phước",
+        "Địa đạo Kỳ Anh"
+      ],
+      "prominent_figures": "Mẹ Nhu (Lê Thị Dãnh); Liệt sĩ Anh hùng Lê Độ; 7 dũng sĩ Thanh Khê",
+      "common_misconceptions": [
+        {
+          "misconception": "Nghĩ rằng căn cứ du kích chỉ có ở rừng núi, trong lòng thành phố không có hầm bí mật.",
+          "correction": "Ngay giữa lòng quận Thanh Khê và Liên Chiểu, Mẹ Nhu và nhân dân đã đào hàng trăm hầm bí mật nuôi giấu bộ đội.",
+          "factual_basis_fact_id": "FACT-MENHU-01"
+        }
+      ],
+      "verified_image": {
+        "filename_or_url": "https://baodanang.vn/dataimages/202103/original/images1615812_me_nhu.jpg",
+        "caption": "Tượng đài Mẹ Nhu và 7 dũng sĩ Thanh Khê tại đường Điện Biên Phủ, Đà Nẵng",
+        "historical_context": "Kháng chiến chống Mỹ (1968)",
+        "image_source_credit": "Bảo tàng Đà Nẵng"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "station_id": 13,
+      "roman_numeral": "XIII",
+      "official_title": "Đại Thắng 29/03/1975 & Tỉnh Quảng Nam - Đà Nẵng",
+      "short_title": "Giải Phóng 1975 & QN-ĐN",
+      "era_span": "1975 – 1996",
+      "icon": "🕊️",
+      "primary_summary": {
+        "text": "Ngày 29/03/1975, lá cờ chiến thắng tung bay trên nóc Tòa Thị chính, thành phố Đà Nẵng hoàn toàn giải phóng. Nhân dân hai miền cùng chung sức xây dựng đại công trình hồ thủy nông Phú Ninh!",
+        "target_audience": "Tiểu học (Lớp 4 - 5)",
+        "derived_from_facts": [
+          "FACT-BRIDGES-01"
+        ]
+      },
+      "secondary_summary": {
+        "text": "11 giờ 30 phút ngày 29/03/1975, Đà Nẵng hoàn toàn giải phóng. Giai đoạn tỉnh Quảng Nam - Đà Nẵng (1975-1996) ghi dấu ý chí quật cường khắc phục hậu quả chiến tranh, công trình thủy nông Hồ Phú Ninh, khôi phục sản xuất và từng bước bứt phá trong thời kỳ Đổi Mới (1986).",
+        "target_audience": "THCS (Lớp 6 - 9)",
+        "derived_from_facts": [
+          "FACT-BRIDGES-01"
+        ]
+      },
+      "verified_fact_ids": [
+        "FACT-BRIDGES-01"
+      ],
+      "key_milestones": [
+        {
+          "year_or_date": "29/03/1975",
+          "event_title": "Đà Nẵng hoàn toàn giải phóng mà hạ tầng hầu như còn nguyên vẹn",
+          "fact_id": "FACT-BRIDGES-01"
+        },
+        {
+          "year_or_date": "1977 - 1986",
+          "event_title": "Đại công trường thủy nông Hồ Phú Ninh - biểu tượng lao động tái thiết",
+          "fact_id": "FACT-BRIDGES-01"
+        }
+      ],
+      "heritage_relics": [
+        "Tòa Thị chính giải phóng 29/3",
+        "Đại công trình Hồ Phú Ninh"
+      ],
+      "prominent_figures": "Các cánh quân giải phóng 29/3; Nhân dân lao động tỉnh QN-ĐN",
+      "common_misconceptions": [
+        {
+          "misconception": "Nghĩ rằng Đà Nẵng được giải phóng vào ngày 30/4/1975 cùng miền Nam.",
+          "correction": "Đà Nẵng được giải phóng trước đó một tháng, đúng ngày 29 tháng 3 năm 1975.",
+          "factual_basis_fact_id": "FACT-BRIDGES-01"
+        }
+      ],
+      "verified_image": {
+        "filename_or_url": "https://baodanang.vn/dataimages/202003/original/images1585412_giai_phong_29_3.jpg",
+        "caption": "Xe tăng quân giải phóng tiến qua cầu Trịnh Minh Thế vào giải phóng Đà Nẵng 29/3/1975",
+        "historical_context": "Đại thắng mùa xuân 1975",
+        "image_source_credit": "Thông tấn xã Việt Nam / Bảo tàng Đà Nẵng"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "station_id": 14,
+      "roman_numeral": "XIV",
+      "official_title": "Thành Phố Trực Thuộc Trung Ương & Kỷ Tích Những Cây Cầu",
+      "short_title": "Trực Thuộc TƯ & Cầu Quay",
+      "era_span": "1997 – 2015",
+      "icon": "🌉",
+      "primary_summary": {
+        "text": "Từ năm 1997, Đà Nẵng trở thành thành phố trực thuộc Trung ương. Thành phố đã xây dựng Cầu quay Sông Hàn đầu tiên tại Việt Nam, Cầu Rồng phun lửa phun nước và bãi biển Mỹ Khê xinh đẹp!",
+        "target_audience": "Tiểu học (Lớp 4 - 5)",
+        "derived_from_facts": [
+          "FACT-BRIDGES-01"
+        ]
+      },
+      "secondary_summary": {
+        "text": "Ngày 01/01/1997, Đà Nẵng chính thức trở thành thành phố trực thuộc Trung ương. Cuộc chuyển mình lịch sử: xóa nhà chồ ven sông Hàn, mở rộng đô thị hướng biển, xây dựng hàng loạt cây cầu biểu tượng: Cầu quay Sông Hàn (2000), Cầu Thuận Phước (2009), Cầu Rồng (2013), Cầu Trần Thị Lý, bứt phá kinh tế du lịch.",
+        "target_audience": "THCS (Lớp 6 - 9)",
+        "derived_from_facts": [
+          "FACT-BRIDGES-01"
+        ]
+      },
+      "verified_fact_ids": [
+        "FACT-BRIDGES-01"
+      ],
+      "key_milestones": [
+        {
+          "year_or_date": "01/01/1997",
+          "event_title": "Đà Nẵng chính thức trở thành thành phố trực thuộc Trung ương",
+          "fact_id": "FACT-BRIDGES-01"
+        },
+        {
+          "year_or_date": "29/03/2000",
+          "event_title": "Khánh thành Cầu quay Sông Hàn - cây cầu của lòng dân",
+          "fact_id": "FACT-BRIDGES-01"
+        },
+        {
+          "year_or_date": "29/03/2013",
+          "event_title": "Khánh thành Cầu Rồng và Cầu Trần Thị Lý",
+          "fact_id": "FACT-BRIDGES-01"
+        }
+      ],
+      "heritage_relics": [
+        "Cầu quay Sông Hàn",
+        "Cầu Rồng",
+        "Bãi biển Mỹ Khê",
+        "Bà Nà Hills"
+      ],
+      "prominent_figures": "Nhân dân Đà Nẵng đồng thuận chung tay xây dựng thành phố",
+      "common_misconceptions": [
+        {
+          "misconception": "Nghĩ rằng Cầu quay Sông Hàn do nước ngoài viện trợ toàn bộ kinh phí.",
+          "correction": "Cầu quay Sông Hàn do chính các kỹ sư Việt Nam thiết kế, thi công và có phần đóng góp rất lớn từ tiền tự nguyện của nhân dân thành phố.",
+          "factual_basis_fact_id": "FACT-BRIDGES-01"
+        }
+      ],
+      "verified_image": {
+        "filename_or_url": "https://baodanang.vn/dataimages/202103/original/images1616812_cau_song_han.jpg",
+        "caption": "Cầu quay Sông Hàn - biểu tượng bứt phá của thành phố Đà Nẵng",
+        "historical_context": "Khánh thành năm 2000",
+        "image_source_credit": "Cổng TTĐT TP Đà Nẵng"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "station_id": 15,
+      "roman_numeral": "XV",
+      "official_title": "Đô Thị Đáng Sống & Trung Tâm Đổi Mới Sáng Tạo",
+      "short_title": "Đô Thị Đáng Sống & APEC",
+      "era_span": "2016 – 2024",
+      "icon": "✨",
+      "primary_summary": {
+        "text": "Đà Nẵng được bạn bè khắp nơi yêu mến gọi là 'Thành phố đáng sống' với Lễ hội Pháo hoa quốc tế rực rỡ, đường phố xanh sạch đẹp và con người mến khách, thân thiện!",
+        "target_audience": "Tiểu học (Lớp 4 - 5)",
+        "derived_from_facts": [
+          "FACT-BRIDGES-01"
+        ]
+      },
+      "secondary_summary": {
+        "text": "Giai đoạn vươn tầm quốc tế với Năm APEC 2017 thành công rực rỡ; xây dựng thương hiệu đô thị biển đáng sống, điểm đến sự kiện và lễ hội hàng đầu châu Á. Chuyển dịch mạnh mẽ sang chuyển đổi số, kinh tế tri thức, công nghệ bán dẫn và phát triển bền vững.",
+        "target_audience": "THCS (Lớp 6 - 9)",
+        "derived_from_facts": [
+          "FACT-BRIDGES-01"
+        ]
+      },
+      "verified_fact_ids": [
+        "FACT-BRIDGES-01"
+      ],
+      "key_milestones": [
+        {
+          "year_or_date": "Tháng 11/2017",
+          "event_title": "Đà Nẵng đăng cai tổ chức Tuần lễ Cấp cao APEC 2017",
+          "fact_id": "FACT-BRIDGES-01"
+        }
+      ],
+      "heritage_relics": [
+        "Công viên APEC",
+        "Khu công nghệ cao Đà Nẵng"
+      ],
+      "prominent_figures": "Cộng đồng nhân dân và trí thức trẻ Đà Nẵng",
+      "common_misconceptions": [
+        {
+          "misconception": "Nghĩ rằng Đà Nẵng chỉ phát triển mỗi du lịch nghỉ dưỡng.",
+          "correction": "Đà Nẵng đang vươn lên thành trung tâm công nghệ cao, công nghệ thông tin và vi mạch bán dẫn của cả nước.",
+          "factual_basis_fact_id": "FACT-BRIDGES-01"
+        }
+      ],
+      "verified_image": {
+        "filename_or_url": "https://baodanang.vn/dataimages/202111/original/images1636812_apec_danang.jpg",
+        "caption": "Công viên APEC bên bờ sông Hàn - dấu ấn hội nhập quốc tế",
+        "historical_context": "Tuần lễ Cấp cao APEC 2017",
+        "image_source_credit": "Cổng TTĐT TP Đà Nẵng"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "station_id": 16,
+      "roman_numeral": "XVI",
+      "official_title": "Đại Đô Thị Trực Thuộc Trung Ương & Kỷ Nguyên Vươn Mình",
+      "short_title": "Sáp Nhập 2025 & Đô Thị Mới",
+      "era_span": "01/07/2025 – Hiện tại",
+      "icon": "🌟",
+      "primary_summary": {
+        "text": "Từ ngày 01/7/2025, Thành phố Đà Nẵng và tỉnh Quảng Nam tái sáp nhập thành một gia đình lớn với diện tích rộng hơn 11.800 km² và 94 xã phường. Chúng mình tự hào có cả Đền tháp Mỹ Sơn, Phố cổ Hội An và biển đảo Hoàng Sa thiêng liêng!",
+        "target_audience": "Tiểu học (Lớp 4 - 5)",
+        "derived_from_facts": [
+          "FACT-MERGER-01",
+          "FACT-MERGER-02",
+          "FACT-CHAM-01",
+          "FACT-HOANGSA-01"
+        ]
+      },
+      "secondary_summary": {
+        "text": "Theo Nghị quyết 1659/NQ-UBTVQH15 có hiệu lực từ ngày 01/7/2025, Thành phố Đà Nẵng tái sáp nhập với tỉnh Quảng Nam thành Thành phố Đà Nẵng trực thuộc Trung ương. Diện tích tự nhiên 11.859,62 km² (lớn nhất trong 6 thành phố trực thuộc TƯ), 94 đơn vị hành chính cấp xã (23 phường, 70 xã, 01 đặc khu Hoàng Sa). Hội tụ di sản thế giới kép Mỹ Sơn & Hội An, 12 Bảo vật quốc gia tại Bảo tàng Chăm, mở ra kỷ nguyên đại đô thị thông minh, sinh thái và kinh tế biển.",
+        "target_audience": "THCS (Lớp 6 - 9)",
+        "derived_from_facts": [
+          "FACT-MERGER-01",
+          "FACT-MERGER-02",
+          "FACT-CHAM-01",
+          "FACT-HOANGSA-01"
+        ]
+      },
+      "verified_fact_ids": [
+        "FACT-MERGER-01",
+        "FACT-MERGER-02",
+        "FACT-CHAM-01",
+        "FACT-HOANGSA-01"
+      ],
+      "key_milestones": [
+        {
+          "year_or_date": "25/06/2025",
+          "event_title": "UBTVQH thông qua Nghị quyết số 1659/NQ-UBTVQH15",
+          "fact_id": "FACT-MERGER-01"
+        },
+        {
+          "year_or_date": "01/07/2025",
+          "event_title": "Chính thức vận hành bộ máy hành chính Thành phố Đà Nẵng mới",
+          "fact_id": "FACT-MERGER-01"
+        }
+      ],
+      "heritage_relics": [
+        "Quần thể Mỹ Sơn",
+        "Đô thị cổ Hội An",
+        "Bảo tàng Điêu khắc Chăm (12 Bảo vật)",
+        "Đặc khu Hoàng Sa"
+      ],
+      "prominent_figures": "Nhân dân Đại đô thị Đà Nẵng mới; Thế hệ học sinh hôm nay chung tay kiến tạo tương lai",
+      "common_misconceptions": [
+        {
+          "misconception": "Nghĩ rằng sau sáp nhập Đà Nẵng chỉ có 8 quận huyện như cũ.",
+          "correction": "Sau ngày 01/7/2025, Đà Nẵng có 94 đơn vị hành chính cấp xã (23 phường, 70 xã, 01 đặc khu Hoàng Sa) với diện tích 11.859,62 km².",
+          "factual_basis_fact_id": "FACT-MERGER-01"
+        }
+      ],
+      "verified_image": {
+        "filename_or_url": "https://baodanang.vn/dataimages/202507/original/images1688812_danang_moi.jpg",
+        "caption": "Bản đồ không gian hành chính Đại đô thị Đà Nẵng sau mốc sáp nhập 01/7/2025",
+        "historical_context": "Nghị quyết 1659/NQ-UBTVQH15",
+        "image_source_credit": "Sở GD&ĐT Đà Nẵng & Sở Nội vụ"
+      },
+      "status": "VERIFIED"
+    }
+  ]
+}

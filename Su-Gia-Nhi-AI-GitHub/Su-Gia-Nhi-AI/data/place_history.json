@@ -1,0 +1,263 @@
+{
+  "places": [
+    {
+      "place_id": "PLC-01",
+      "current_name_post_2025": "Thành phố Đà Nẵng (Đại đô thị trực thuộc TƯ)",
+      "admin_level": "Thành phố",
+      "historical_periods_with_evidence": [
+        {
+          "period_name": "Cổ đại (Thế kỷ II - X)",
+          "historical_name": "Châu Amaravati (Vương quốc Lâm Ấp / Champa)",
+          "evidence_source_id": "SRC-GDDP6-DOCX",
+          "source_locator": "Chủ đề 3: Di sản văn hóa vật thể",
+          "historical_note": "Địa bàn cư trú và thánh địa tôn giáo cổ ven cửa biển Cửa Hàn."
+        },
+        {
+          "period_name": "Thời Lê Sơ (1471)",
+          "historical_name": "Đạo Thừa tuyên Quảng Nam (huyện Diên Phước, phủ Triệu Phong)",
+          "evidence_source_id": "SRC-GDDP6-DOCX",
+          "source_locator": "Chủ đề 2: Lược sử hình thành",
+          "historical_note": "Vua Lê Thánh Tông ban sắc chỉ định danh Quảng Nam năm 1471."
+        },
+        {
+          "period_name": "Thời chúa Nguyễn (TK XVII - XVIII)",
+          "historical_name": "Tiền cảng Cửa Hàn",
+          "evidence_source_id": "SRC-GDDP4-DOCX",
+          "source_locator": "Chủ đề 1 & Chủ đề 5",
+          "historical_note": "Cửa ngõ tiếp nước ngọt và hàng hóa cho thương cảng Hội An và Dinh trấn Thanh Chiêm."
+        },
+        {
+          "period_name": "Pháp thuộc (1888 - 1945)",
+          "historical_name": "Thành phố nhượng địa Tourane",
+          "evidence_source_id": "SRC-BTDN",
+          "source_locator": "Hồ sơ Thời kỳ Pháp thuộc",
+          "historical_note": "Cắt nhượng theo đạo dụ ngày 03/10/1888 của vua Đồng Khánh."
+        },
+        {
+          "period_name": "Thời kỳ 1997 - 06/2025",
+          "historical_name": "Thành phố Đà Nẵng trực thuộc Trung ương (cũ)",
+          "evidence_source_id": "SRC-GDDP6-PDF",
+          "source_locator": "Trang 12: Địa giới hành chính cũ",
+          "historical_note": "Gồm 8 quận, huyện; diện tích tự nhiên 1.285 km²."
+        }
+      ],
+      "post_2025_status": {
+        "administrative_rearrangement": "Tái sáp nhập TP Đà Nẵng (cũ) và tỉnh Quảng Nam thành Thành phố Đà Nẵng mới trực thuộc TƯ gồm 94 đơn vị hành chính cấp xã, diện tích 11.859,62 km².",
+        "legal_basis": "Nghị quyết 1659/NQ-UBTVQH15, Điều 1",
+        "fact_id": "FACT-MERGER-01"
+      },
+      "historical_significance": "Đại đô thị trung tâm miền Trung kết nối di sản thế giới kép UNESCO Mỹ Sơn - Hội An và trung tâm kinh tế biển.",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "place_id": "PLC-02",
+      "current_name_post_2025": "Phường Điện Bàn & Các phường phụ cận (Điện Bàn Đông, Điện Bàn Bắc, An Thắng)",
+      "admin_level": "Phường",
+      "historical_periods_with_evidence": [
+        {
+          "period_name": "Thời chúa Nguyễn (Năm 1602)",
+          "historical_name": "Dinh trấn Thanh Chiêm",
+          "evidence_source_id": "SRC-GDDP4-DOCX",
+          "source_locator": "Chủ đề 5: Nghề đúc đồng Phước Kiều",
+          "historical_note": "Thủ phủ thứ hai của Đàng Trong; cái nôi chữ Quốc ngữ từ năm 1615."
+        },
+        {
+          "period_name": "Thời Nguyễn (Thế kỷ XIX)",
+          "historical_name": "Phủ Điện Bàn, tỉnh Quảng Nam",
+          "evidence_source_id": "SRC-BTDN",
+          "source_locator": "Địa chí Quảng Nam",
+          "historical_note": "Trung tâm hành chính trọng yếu của phủ Điện Bàn."
+        }
+      ],
+      "post_2025_status": {
+        "administrative_rearrangement": "Sắp xếp thành các phường Điện Bàn, Điện Bàn Đông, Điện Bàn Bắc, An Thắng và các xã Điện Bàn Tây, Gò Nổi thuộc TP Đà Nẵng mới.",
+        "legal_basis": "Nghị quyết 1659/NQ-UBTVQH15, Điều 1",
+        "fact_id": "FACT-MERGER-01"
+      },
+      "historical_significance": "Cái nôi ra đời chữ Quốc ngữ; làng nghề đúc đồng Phước Kiều hơn 400 năm tuổi.",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "place_id": "PLC-03",
+      "current_name_post_2025": "Phường Hội An, Hội An Đông, Hội An Tây",
+      "admin_level": "Phường",
+      "historical_periods_with_evidence": [
+        {
+          "period_name": "Thời Champa cổ",
+          "historical_name": "Thương cảng Đại Chiêm Hải Khẩu",
+          "evidence_source_id": "SRC-GDDP6-DOCX",
+          "source_locator": "Chủ đề 3: Di sản văn hóa vật thể",
+          "historical_note": "Cửa biển giao thương sầm uất của vương quốc Champa."
+        },
+        {
+          "period_name": "Thời chúa Nguyễn (TK XVI - XVIII)",
+          "historical_name": "Đô thị thương cảng quốc tế Hội An (Faifo)",
+          "evidence_source_id": "SRC-GDDP6-DOCX",
+          "source_locator": "Chủ đề 4: Hệ thống sông Thu Bồn",
+          "historical_note": "Đô thị thương cảng quốc tế nơi thuyền buôn Nhật Bản, Trung Hoa, phương Tây tấp nập."
+        }
+      ],
+      "post_2025_status": {
+        "administrative_rearrangement": "Gồm 3 phường trung tâm Hội An thuộc TP Đà Nẵng mới.",
+        "legal_basis": "Nghị quyết 1659/NQ-UBTVQH15",
+        "fact_id": "FACT-MERGER-01"
+      },
+      "historical_significance": "Di sản Văn hóa Thế giới UNESCO (1999); quần thể kiến trúc gỗ truyền thống Á Đông nguyên vẹn.",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "place_id": "PLC-04",
+      "current_name_post_2025": "Xã Thu Bồn (Khu vực Duy Xuyên cũ)",
+      "admin_level": "Xã",
+      "historical_periods_with_evidence": [
+        {
+          "period_name": "Thời Champa (TK IV - XIII)",
+          "historical_name": "Thánh địa Mỹ Sơn (Amaravati)",
+          "evidence_source_id": "SRC-GDDP6-DOCX",
+          "source_locator": "Chủ đề 3: Đền tháp Mỹ Sơn",
+          "historical_note": "Trung tâm tôn giáo tín ngưỡng thờ thần Shiva của vương triều Champa với hơn 70 ngôi đền tháp."
+        }
+      ],
+      "post_2025_status": {
+        "administrative_rearrangement": "Hợp nhất các xã Duy Châu, Duy Hòa, Duy Phú, Duy Tân thành xã Thu Bồn, TP Đà Nẵng.",
+        "legal_basis": "Nghị quyết 1659/NQ-UBTVQH15, Điều 1",
+        "fact_id": "FACT-MYSON-01"
+      },
+      "historical_significance": "Chứa Quần thể Đền tháp Mỹ Sơn - Di sản Văn hóa Thế giới UNESCO.",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "place_id": "PLC-05",
+      "current_name_post_2025": "Phường Hải Châu (Hải Châu mới)",
+      "admin_level": "Phường",
+      "historical_periods_with_evidence": [
+        {
+          "period_name": "Thời Nguyễn (1813 - 1823)",
+          "historical_name": "Làng cổ Hải Châu & Thành Điện Hải",
+          "evidence_source_id": "SRC-BTDN",
+          "source_locator": "Hồ sơ Di tích Thành Điện Hải",
+          "historical_note": "Nơi xây dựng Đồn Điện Hải (1813) và Thành Điện Hải (1823) phòng thủ cửa biển."
+        },
+        {
+          "period_name": "Pháp thuộc (1888 - 1945)",
+          "historical_name": "Trung tâm nhượng địa Tourane",
+          "evidence_source_id": "SRC-BTDN",
+          "source_locator": "Hồ sơ Tourane",
+          "historical_note": "Tòa Đốc lý Tourane, bến cảng Bạch Đằng."
+        }
+      ],
+      "post_2025_status": {
+        "administrative_rearrangement": "Hợp nhất các phường Thanh Bình, Thuận Phước, Thạch Thang, Phước Ninh, Hải Châu thành phường Hải Châu mới.",
+        "legal_basis": "Nghị quyết 1659/NQ-UBTVQH15",
+        "fact_id": "FACT-MERGER-01"
+      },
+      "historical_significance": "Trung tâm hành chính - văn hóa của thành phố; Di tích Quốc gia Đặc biệt Thành Điện Hải gắn với mặt trận 1858.",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "place_id": "PLC-06",
+      "current_name_post_2025": "Xã Núi Thành & Khu Kinh tế mở Chu Lai",
+      "admin_level": "Xã",
+      "historical_periods_with_evidence": [
+        {
+          "period_name": "Cận đại & Hiện đại",
+          "historical_name": "Cửa biển Kỳ Hà, Tam Hải",
+          "evidence_source_id": "SRC-GDDP6-DOCX",
+          "source_locator": "Chủ đề 2: Vùng duyên hải phía Nam",
+          "historical_note": "Vùng biển phía Nam xứ Quảng tiếp giáp Quảng Ngãi."
+        }
+      ],
+      "post_2025_status": {
+        "administrative_rearrangement": "Gồm các xã Núi Thành, Tam Mỹ, Tam Anh, Tam Xuân, Tam Hải thuộc TP Đà Nẵng mới.",
+        "legal_basis": "Nghị quyết 1659/NQ-UBTVQH15",
+        "fact_id": "FACT-MERGER-01"
+      },
+      "historical_significance": "Khu kinh tế mở Chu Lai - KKT mở đầu tiên của Việt Nam, trung tâm công nghiệp ô tô và cảng biển.",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "place_id": "PLC-07",
+      "current_name_post_2025": "Đặc khu Hoàng Sa",
+      "admin_level": "Đặc khu",
+      "historical_periods_with_evidence": [
+        {
+          "period_name": "Thời chúa Nguyễn & Triều Nguyễn (TK XVII - XIX)",
+          "historical_name": "Bãi Cát Vàng / Vạn Lý Hoàng Sa",
+          "evidence_source_id": "SRC-GDDP6-DOCX",
+          "source_locator": "Chủ đề 2: Đặc khu Hoàng Sa",
+          "historical_note": "Đội Hoàng Sa xác lập chủ quyền, đo đạc hải trình và cắm mốc chủ quyền."
+        }
+      ],
+      "post_2025_status": {
+        "administrative_rearrangement": "Đặc khu Hoàng Sa thuộc Thành phố Đà Nẵng mới (gồm hơn 30 đảo đá bãi cạn trên hơn 15.000 km² vùng biển).",
+        "legal_basis": "Nghị quyết 1659/NQ-UBTVQH15, Điều 1",
+        "fact_id": "FACT-HOANGSA-01"
+      },
+      "historical_significance": "Phần lãnh thổ thiêng liêng không thể tách rời của Tổ quốc Việt Nam trên Biển Đông.",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "place_id": "PLC-08",
+      "current_name_post_2025": "Xã Tân Hiệp & Quần đảo Cù Lao Chàm",
+      "admin_level": "Xã",
+      "historical_periods_with_evidence": [
+        {
+          "period_name": "Cổ đại & Phong kiến",
+          "historical_name": "Chiêm Bất Lao",
+          "evidence_source_id": "SRC-GDDP4-DOCX",
+          "source_locator": "Chủ đề 1: Thiên nhiên và con người",
+          "historical_note": "Điểm dừng chân tiếp nước ngọt của tàu thuyền quốc tế trên Con đường tơ lụa biển."
+        }
+      ],
+      "post_2025_status": {
+        "administrative_rearrangement": "Xã Tân Hiệp (giữ nguyên không sắp xếp theo NQ 1659), thuộc TP Đà Nẵng.",
+        "legal_basis": "Nghị quyết 1659/NQ-UBTVQH15",
+        "fact_id": "FACT-MERGER-01"
+      },
+      "historical_significance": "Khu Dự trữ Sinh quyển Thế giới UNESCO (2009).",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "place_id": "PLC-09",
+      "current_name_post_2025": "Thắng cảnh Hòn Kẽm Đá Dừng (Xã Hiệp Đức)",
+      "admin_level": "Thắng cảnh/Di tích",
+      "historical_periods_with_evidence": [
+        {
+          "period_name": "Kháng chiến Cần Vương (1885 - 1887)",
+          "historical_name": "Căn cứ Tân Tỉnh - Hòn Kẽm Đá Dừng",
+          "evidence_source_id": "SRC-GDDP4-DOCX",
+          "source_locator": "Chủ đề 4: Sông Thu Bồn, Mục 3",
+          "historical_note": "Căn cứ kiên cố của Nghĩa Hội Quảng Nam do Tướng quân Nguyễn Duy Hiệu chỉ huy chống Pháp."
+        }
+      ],
+      "post_2025_status": {
+        "administrative_rearrangement": "Thuộc địa phận xã Hiệp Đức, Thành phố Đà Nẵng mới.",
+        "legal_basis": "Nghị quyết 1659/NQ-UBTVQH15",
+        "fact_id": "FACT-HONKEM-01"
+      },
+      "historical_significance": "Thắng cảnh thiên nhiên hùng vĩ trên sông Thu Bồn gắn với câu ca dao 'Ngó lên Hòn Kẽm Đá Dừng' và phong trào Cần Vương.",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "place_id": "PLC-10",
+      "current_name_post_2025": "Xã Hòa Vang & Nghĩa trủng Hòa Vang",
+      "admin_level": "Xã",
+      "historical_periods_with_evidence": [
+        {
+          "period_name": "Kháng Pháp 1858 & Kháng Mỹ 1965",
+          "historical_name": "Huyện Hòa Vang & Vành đai diệt Mỹ Hòa Vang",
+          "evidence_source_id": "SRC-BTDN",
+          "source_locator": "Hồ sơ Lịch sử Kháng chiến Hòa Vang",
+          "historical_note": "Nghĩa trủng Hòa Vang an táng hơn một ngàn nghĩa sĩ 1858; Vành đai diệt Mỹ Hòa Vang trong kháng chiến chống Mỹ."
+        }
+      ],
+      "post_2025_status": {
+        "administrative_rearrangement": "Sắp xếp thành các đơn vị hành chính xã thuộc TP Đà Nẵng mới.",
+        "legal_basis": "Nghị quyết 1659/NQ-UBTVQH15",
+        "fact_id": "FACT-NGHIA-TRUNG-01"
+      },
+      "historical_significance": "Vùng đất quật cường chống ngoại xâm; nơi lưu giữ các nghĩa trang nghĩa sĩ đầu tiên của cả nước.",
+      "verification_status": "VERIFIED"
+    }
+  ]
+}
